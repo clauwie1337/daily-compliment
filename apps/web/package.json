@@ -15,7 +15,10 @@
     "pretest:e2e": "pnpm build",
     "pw:deps:local": "node scripts/install-playwright-deps-local.mjs",
     "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "test:e2e:report": "playwright show-report",
     "test:e2e:local": "pnpm pw:deps:local && PW_LOCAL_DEPS=1 playwright test",
+    "test:e2e:local:update": "pnpm pw:deps:local && PW_LOCAL_DEPS=1 playwright test --update-snapshots",
     "test:e2e:ui": "playwright test --ui",
     "validate:data": "node --experimental-strip-types ../../scripts/validate-data.ts"
   },
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@axe-core/playwright": "^4.11.1",
     "@eslint/js": "^9.39.2",
     "@playwright/test": "^1.58.2",
     "@types/node": "^22.19.9",

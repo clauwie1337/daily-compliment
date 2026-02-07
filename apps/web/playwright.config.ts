@@ -24,17 +24,50 @@ if (process.env.PW_LOCAL_DEPS === '1') {
   }
 }
 
+const isCI = !!process.env.CI;
+
 export default defineConfig({
   testDir: './tests/e2e',
+
+  forbidOnly: isCI,
+  retries: isCI ? 2 : 0,
+  workers: isCI ? 2 : undefined,
+  fullyParallel: true,
+
+  reporter: [
+    ['list'],
+    ['html', { open: 'never', outputFolder: 'playwright-report' }],
+    ['github'],
+  ],
+
   timeout: 60_000,
   expect: {
     timeout: 10_000,
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.001,
+      animations: 'disabled',
+      caret: 'hide',
+      scale: 'css',
+    },
   },
   use: {
     baseURL: 'http://127.0.0.1:4321',
+
+    // Determinism
+    locale: 'en-US',
+    timezoneId: 'UTC',
+    colorScheme: 'light',
+    viewport: { width: 1280, height: 720 },
+    deviceScaleFactor: 1,
+
+    // Debuggability
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+
+    launchOptions: {
+      args: ['--disable-dev-shm-usage', '--force-color-profile=srgb'],
+    },
   },
   projects: [
     {
