@@ -72,6 +72,15 @@ importers:
         specifier: ^2.1.9
         version: 2.1.9(@types/node@22.19.9)
 
+  packages/core:
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.9
+        version: 2.1.9(@types/node@22.19.9)
+
 packages:
 
   '@astrojs/check@0.9.6':

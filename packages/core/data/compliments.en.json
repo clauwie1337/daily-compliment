@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "locale": "en",
+  "compliments": [
+    {
+      "id": "en-0001",
+      "text": "You have a remarkable way of making people feel seen.",
+      "tags": ["general"]
+    },
+    {
+      "id": "en-0002",
+      "text": "Your curiosity turns everyday moments into something interesting.",
+      "tags": ["general"],
+      "weight": 1
+    },
+    {
+      "id": "en-0003",
+      "text": "You bring a calm competence to whatever you touch.",
+      "tags": ["work"]
+    }
+  ]
+}
