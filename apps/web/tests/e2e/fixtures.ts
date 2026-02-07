@@ -16,7 +16,7 @@ export const test = base.extend({
           caret-color: transparent !important;
         }
         html, body {
-          font-family: "Noto Sans", "DejaVu Sans", Arial, sans-serif !important;
+          font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif !important;
         }
       `;
       document.documentElement.appendChild(style);

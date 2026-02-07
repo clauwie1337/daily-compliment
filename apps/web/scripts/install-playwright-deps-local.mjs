@@ -115,7 +115,14 @@ const nativeDeps = require(nativeDepsPath);
 
 const platform = nativeDeps.deps?.[platformKey];
 const basePkgs = platform?.chromium;
-const toolsPkgs = (platform?.tools ?? []).filter((p) => p !== 'xvfb');
+const toolsPkgs = Array.from(
+  new Set([
+    ...(platform?.tools ?? []).filter((p) => p !== 'xvfb'),
+    // Extra fonts to match GitHub Actions (visual baseline stability)
+    'fonts-dejavu-core',
+    'fonts-liberation',
+  ]),
+);
 const lib2pkg = platform?.lib2package;
 
 // Some libs are not present in Playwright's lib2package map for this distro.
