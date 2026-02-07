@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# local caches
+.cache/
+
+# builds
+apps/web/dist/
+apps/web/.astro/
+
+# env
+.env
+.env.*
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# test artifacts
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/.playwright/
+
+# OS
+.DS_Store
