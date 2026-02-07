@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HelloIsland from '../components/HelloIsland.svelte';
+---
+
+<BaseLayout title="Daily Compliment">
+  <h1>Daily Compliment</h1>
+  <p>A tiny app that gives you a compliment and remembers what you’ve already seen (per device).</p>
+
+  <HelloIsland client:load />
+</BaseLayout>
