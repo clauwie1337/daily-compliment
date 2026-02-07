@@ -14,6 +14,7 @@
     "test": "pnpm -C packages/core test && pnpm -C apps/web test",
     "test:unit": "pnpm -C packages/core test && pnpm -C apps/web test:unit",
     "test:e2e": "pnpm -C apps/web test:e2e",
-    "validate:data": "pnpm -C apps/web validate:data"
+    "validate:data": "pnpm -C apps/web validate:data",
+    "generate:ai": "node --experimental-strip-types scripts/generate-ai-compliments.ts"
   }
 }
