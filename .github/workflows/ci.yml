@@ -39,6 +39,11 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Install fonts (stabilize screenshots)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto fonts-dejavu-core
+
       - name: Install Playwright browsers
         run: pnpm -C apps/web exec playwright install --with-deps chromium
 
