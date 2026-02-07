@@ -17,7 +17,7 @@
     "test:e2e": "playwright test",
     "test:e2e:local": "pnpm pw:deps:local && PW_LOCAL_DEPS=1 playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "validate:data": "node -e \"console.log('validate:data: (stub) added in Milestone 1')\""
+    "validate:data": "node --experimental-strip-types ../../scripts/validate-data.ts"
   },
   "dependencies": {
     "@astrojs/svelte": "^7.2.5",
