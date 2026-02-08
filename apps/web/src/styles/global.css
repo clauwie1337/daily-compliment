@@ -98,10 +98,35 @@ body::before {
     radial-gradient(520px 320px at 80% 25%, rgba(219, 39, 119, 0.12), transparent 70%),
     radial-gradient(520px 320px at 55% 85%, rgba(245, 158, 11, 0.10), transparent 70%);
 
-  filter: blur(28px) saturate(1.15);
+  filter: blur(30px) saturate(1.15);
   opacity: 0.9;
   transform: translate3d(0, 0, 0) scale(1);
   animation: dc-bg-drift 18s ease-in-out infinite alternate;
+}
+
+/* Static noise overlay for depth (deterministic SVG turbulence) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch' seed='7'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme='dark'] body::after {
+  opacity: 0.07;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) body::after {
+    opacity: 0.07;
+    mix-blend-mode: screen;
+  }
 }
 
 @keyframes dc-bg-drift {
@@ -162,50 +187,47 @@ header.app-header .title::after {
   text-shadow: none;
 }
 
-/* Let the compliment card feel like a playful hero */
+/* Compliment card: gradient border + clean surface */
 article.compliment-card {
-  padding: 1.5rem 1.5rem 1.25rem;
-  border: 1px solid var(--dc-border);
+  padding: 1.75rem 1.65rem 1.55rem;
+
+  border: 1px solid transparent;
+  border-radius: 22px;
+
+  background:
+    linear-gradient(var(--dc-surface), var(--dc-surface)) padding-box,
+    linear-gradient(
+        90deg,
+        rgba(79, 70, 229, 0.65),
+        rgba(219, 39, 119, 0.55),
+        rgba(245, 158, 11, 0.50)
+      )
+      border-box;
+
   box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.10),
-    0 4px 12px rgba(0, 0, 0, 0.06);
-  background: var(--dc-surface);
+    0 28px 70px rgba(0, 0, 0, 0.14),
+    0 10px 26px rgba(0, 0, 0, 0.10);
+
   position: relative;
   overflow: hidden;
 }
 
-/* Ensure decorative layers never reduce readability */
-article.compliment-card > * {
-  position: relative;
-  z-index: 2;
-}
-
-article.compliment-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: calc(var(--pico-border-radius) + 2px);
-  background: linear-gradient(
-    90deg,
-    rgba(79, 70, 229, 0.70),
-    rgba(219, 39, 119, 0.60),
-    rgba(245, 158, 11, 0.60)
-  );
-  z-index: 0;
-}
-
+/* Confetti texture inside the card, extremely subtle */
 article.compliment-card::after {
-  /* subtle confetti dots (static, behind content) */
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 25%, rgba(219, 39, 119, 0.16) 0 4px, transparent 5px),
-    radial-gradient(circle at 85% 20%, rgba(79, 70, 229, 0.14) 0 5px, transparent 6px),
-    radial-gradient(circle at 78% 75%, rgba(34, 197, 94, 0.12) 0 4px, transparent 5px),
-    radial-gradient(circle at 25% 78%, rgba(245, 158, 11, 0.12) 0 6px, transparent 7px);
+    radial-gradient(circle at 12% 22%, rgba(219, 39, 119, 0.12) 0 4px, transparent 5px),
+    radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.10) 0 5px, transparent 6px),
+    radial-gradient(circle at 78% 78%, rgba(34, 197, 94, 0.08) 0 4px, transparent 5px),
+    radial-gradient(circle at 24% 82%, rgba(245, 158, 11, 0.09) 0 6px, transparent 7px);
   opacity: 0.55;
   pointer-events: none;
+}
+
+article.compliment-card > * {
+  position: relative;
   z-index: 1;
 }
 

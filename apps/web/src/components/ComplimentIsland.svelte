@@ -183,15 +183,19 @@
   });
 </script>
 
-<article class="compliment-card" aria-label="compliment">
-  <blockquote>
-    <p class="quote" data-testid="compliment">{text}</p>
-  </blockquote>
-</article>
+<div class="hero">
+  <div class="compliment-stack">
+    <article class="compliment-card" aria-label="compliment" data-testid="compliment-card">
+      <blockquote>
+        <p class="quote" data-testid="compliment">{text}</p>
+      </blockquote>
+    </article>
+  </div>
 
-<div class="actions-bar" aria-label="actions">
-  <button type="button" class="primary" on:click={next} data-testid="next">Next</button>
-  <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">Reset</button>
+  <div class="actions-bar" aria-label="actions">
+    <button type="button" class="primary" on:click={next} data-testid="next">Next</button>
+    <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">Reset</button>
+  </div>
 </div>
 
 <style>
@@ -205,24 +209,70 @@
     color: var(--dc-text);
   }
 
+  .hero {
+    display: grid;
+    gap: 1.25rem;
+    justify-items: center;
+  }
+
+  .compliment-stack {
+    width: min(50rem, 100%);
+    position: relative;
+  }
+
+  /* Stacked-card illusion */
+  .compliment-stack::before,
+  .compliment-stack::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    pointer-events: none;
+  }
+
+  .compliment-stack::before {
+    transform: translateY(14px) scale(0.985);
+    background: linear-gradient(90deg, rgba(79, 70, 229, 0.18), rgba(219, 39, 119, 0.16), rgba(245, 158, 11, 0.14));
+    filter: blur(18px);
+    opacity: 0.7;
+  }
+
+  .compliment-stack::after {
+    transform: translateY(8px) scale(0.992);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.55);
+    opacity: 0.35;
+  }
+
+  article.compliment-card {
+    position: relative;
+    z-index: 1;
+  }
+
   .actions-bar {
-    margin-top: 1.25rem;
+    width: min(36rem, 100%);
+
     display: flex;
     justify-content: center;
     gap: 0.75rem;
     flex-wrap: wrap;
 
-    padding: 0.75rem;
+    padding: 0.85rem;
     border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--dc-surface), var(--dc-surface)) padding-box,
+      linear-gradient(90deg, rgba(79, 70, 229, 0.35), rgba(219, 39, 119, 0.28), rgba(245, 158, 11, 0.22))
+        border-box;
+
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
   }
 
   /* Make the pill not stretch full width on mobile */
   .actions-bar :global(button) {
     width: auto;
     margin-bottom: 0;
+    min-width: 7rem;
   }
 </style>
