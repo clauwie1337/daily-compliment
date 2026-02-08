@@ -6,20 +6,40 @@
 */
 
 :root {
+  /* Daily-Compliment palette (light mode) */
+  --dc-bg: #f8fafc;
+  --dc-surface: #ffffff;
+  --dc-text: #0f172a;
+  --dc-muted: #334155;
+  --dc-border: rgba(15, 23, 42, 0.12);
+
+  --dc-accent-1: #4f46e5; /* indigo */
+  --dc-accent-2: #db2777; /* pink */
+  --dc-accent-3: #f59e0b; /* amber */
+
+  /* Pico overrides */
   --pico-border-radius: 18px;
   --pico-typography-spacing-vertical: 1.25rem;
   --pico-form-element-spacing-vertical: 0.6rem;
   --pico-form-element-spacing-horizontal: 0.9rem;
+
+  /* Increase overall contrast */
+  --pico-background-color: var(--dc-bg);
+  --pico-color: var(--dc-text);
+  --pico-muted-color: var(--dc-muted);
+  --pico-muted-border-color: rgba(15, 23, 42, 0.10);
+  --pico-card-background-color: var(--dc-surface);
+  --pico-card-border-color: rgba(15, 23, 42, 0.10);
 }
 
 body {
   min-height: 100vh;
+  color: var(--dc-text);
   background:
-    radial-gradient(1000px 550px at 18% 0%, rgba(99, 102, 241, 0.28), transparent 62%),
-    radial-gradient(900px 520px at 82% 8%, rgba(236, 72, 153, 0.22), transparent 60%),
-    radial-gradient(850px 520px at 55% 110%, rgba(34, 197, 94, 0.18), transparent 60%),
-    radial-gradient(700px 420px at 50% 35%, rgba(245, 158, 11, 0.12), transparent 55%),
-    var(--pico-background-color);
+    radial-gradient(1000px 550px at 18% 0%, rgba(79, 70, 229, 0.22), transparent 62%),
+    radial-gradient(900px 520px at 82% 8%, rgba(219, 39, 119, 0.18), transparent 60%),
+    radial-gradient(700px 420px at 50% 35%, rgba(245, 158, 11, 0.10), transparent 55%),
+    var(--dc-bg);
 }
 
 main.app {
@@ -38,10 +58,12 @@ header.app-header .title {
   line-height: 1.05;
   font-weight: 900;
 
-  background: linear-gradient(90deg, #6366f1 0%, #ec4899 45%, #f59e0b 100%);
+  /* Keep it playful but readable: gradient text + subtle stroke fallback */
+  background: linear-gradient(90deg, var(--dc-accent-1) 0%, var(--dc-accent-2) 45%, var(--dc-accent-3) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-stroke: 0.5px rgba(15, 23, 42, 0.25);
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
 }
@@ -55,14 +77,19 @@ header.app-header .title::after {
 /* Let the compliment card feel like a playful hero */
 article.compliment-card {
   padding: 1.5rem 1.5rem 1.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--dc-border);
   box-shadow:
     0 18px 50px rgba(0, 0, 0, 0.10),
     0 4px 12px rgba(0, 0, 0, 0.06);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(10px);
+  background: var(--dc-surface);
   position: relative;
   overflow: hidden;
+}
+
+/* Ensure decorative layers never reduce readability */
+article.compliment-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 article.compliment-card::before {
@@ -70,22 +97,28 @@ article.compliment-card::before {
   position: absolute;
   inset: -2px;
   border-radius: calc(var(--pico-border-radius) + 2px);
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.7), rgba(236, 72, 153, 0.6), rgba(245, 158, 11, 0.6));
-  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(79, 70, 229, 0.70),
+    rgba(219, 39, 119, 0.60),
+    rgba(245, 158, 11, 0.60)
+  );
+  z-index: 0;
 }
 
 article.compliment-card::after {
-  /* subtle confetti dots (static) */
+  /* subtle confetti dots (static, behind content) */
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 25%, rgba(236, 72, 153, 0.20) 0 4px, transparent 5px),
-    radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.18) 0 5px, transparent 6px),
-    radial-gradient(circle at 78% 75%, rgba(34, 197, 94, 0.16) 0 4px, transparent 5px),
-    radial-gradient(circle at 25% 78%, rgba(245, 158, 11, 0.14) 0 6px, transparent 7px);
-  opacity: 0.9;
+    radial-gradient(circle at 15% 25%, rgba(219, 39, 119, 0.16) 0 4px, transparent 5px),
+    radial-gradient(circle at 85% 20%, rgba(79, 70, 229, 0.14) 0 5px, transparent 6px),
+    radial-gradient(circle at 78% 75%, rgba(34, 197, 94, 0.12) 0 4px, transparent 5px),
+    radial-gradient(circle at 25% 78%, rgba(245, 158, 11, 0.12) 0 6px, transparent 7px);
+  opacity: 0.55;
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Pico blockquote defaults are a bit "bloggy"; make it look like a quote */
@@ -98,9 +131,9 @@ article.compliment-card blockquote {
 /* Make the primary CTA feel fun */
 button.primary {
   border: none;
-  background: linear-gradient(90deg, #6366f1 0%, #ec4899 55%, #f59e0b 100%);
-  color: white;
-  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.22);
+  background: linear-gradient(90deg, var(--dc-accent-1) 0%, var(--dc-accent-2) 55%, var(--dc-accent-3) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.22);
 }
 
 button.primary:active {

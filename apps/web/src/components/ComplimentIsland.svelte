@@ -171,11 +171,12 @@
 <style>
   .quote {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-weight: 850;
     line-height: 1.15;
     letter-spacing: -0.015em;
     text-align: center;
     margin: 0;
+    color: var(--dc-text);
   }
 
   .meta {
@@ -188,10 +189,10 @@
     display: inline-block;
     padding: 0.2rem 0.6rem;
     border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(6px);
-    opacity: 0.9;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--dc-muted);
+    opacity: 1;
   }
 
   .actions {
