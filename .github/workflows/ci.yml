@@ -39,16 +39,16 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Install fonts (stabilize screenshots)
+      - name: Prepare Playwright deps (repo-local, deterministic)
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-dejavu-core fonts-liberation fonts-noto
+          pnpm -C apps/web pw:deps:local
 
       - name: Install Playwright browsers
-        run: pnpm -C apps/web exec playwright install --with-deps chromium
+        run: pnpm -C apps/web exec playwright install chromium
 
       - name: E2E tests (Playwright)
-        run: pnpm test:e2e
+        run: PW_LOCAL_DEPS=1 pnpm test:e2e
 
       - name: Upload Playwright report
         if: always()
