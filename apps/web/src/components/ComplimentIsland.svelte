@@ -17,6 +17,95 @@
 
   let text = '…';
 
+  let quoteEl: HTMLParagraphElement | null = null;
+  let cardEl: HTMLElement | null = null;
+
+  function isBathroomSkin(): boolean {
+    try {
+      return document.documentElement.getAttribute('data-skin') === 'bathroom';
+    } catch {
+      return false;
+    }
+  }
+
+  function readBathroomCircleDiameterRatio(): number {
+    try {
+      const raw = getComputedStyle(document.documentElement)
+        .getPropertyValue('--dc-bathroom-circle-diameter')
+        .trim();
+      const n = Number.parseFloat(raw);
+      return Number.isFinite(n) && n > 0 && n <= 1 ? n : 0.76;
+    } catch {
+      return 0.76;
+    }
+  }
+
+  let fitSeq = 0;
+
+  async function fitBathroomText() {
+    if (!quoteEl || !cardEl) return;
+
+    const bathroom = isBathroomSkin();
+
+    // If not in bathroom skin, ensure we don't keep an inline override.
+    if (!bathroom) {
+      quoteEl.style.removeProperty('font-size');
+      return;
+    }
+
+    // Wait a tick so layout is up to date after text change.
+    await tick();
+
+    const card = cardEl.getBoundingClientRect();
+    const size = Math.min(card.width, card.height);
+    if (!Number.isFinite(size) || size <= 0) return;
+
+    const diameterRatio = readBathroomCircleDiameterRatio();
+    const diameter = size * diameterRatio;
+    const margin = Math.max(12, Math.round(size * 0.05));
+    const maxDiagonal = Math.max(0, diameter - margin);
+
+    // Start from computed font-size (but cap it so we don't accidentally start huge).
+    const computed = getComputedStyle(quoteEl);
+    const base = Number.parseFloat(computed.fontSize || '0');
+    if (!Number.isFinite(base) || base <= 0) return;
+
+    const startPx = Math.min(base, 44);
+    const minPx = 14;
+
+    let px = startPx;
+    // Iterate down until the text box diagonal fits inside the circle diameter.
+    for (let i = 0; i < 28; i++) {
+      quoteEl.style.fontSize = `${px}px`;
+
+      // Force a layout read.
+      const r = quoteEl.getBoundingClientRect();
+      const diag = Math.hypot(r.width, r.height);
+
+      if (diag <= maxDiagonal) return;
+      px = Math.max(minPx, px - 2);
+      if (px === minPx) break;
+    }
+
+    // Final attempt at minimum size.
+    quoteEl.style.fontSize = `${minPx}px`;
+  }
+
+  function queueFitBathroomText(_dep?: unknown) {
+    void _dep;
+
+    // SSR guard (Astro builds render the island on the server too).
+    if (typeof window === 'undefined') return;
+    if (typeof requestAnimationFrame !== 'function') return;
+
+    const seq = ++fitSeq;
+    // Use rAF so we measure after layout/styles settle.
+    requestAnimationFrame(async () => {
+      if (seq !== fitSeq) return;
+      await fitBathroomText();
+    });
+  }
+
   function getParam(name: string): string | null {
     try {
       const url = new URL(window.location.href);
@@ -182,18 +271,45 @@
     pickInitial();
   }
 
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy, tick } from 'svelte';
+
+  $: queueFitBathroomText(text);
+
+  let skinObserver: MutationObserver | null = null;
+  const onResize = () => queueFitBathroomText();
 
   onMount(() => {
     pickInitial();
+    queueFitBathroomText();
+
+    // Re-fit when the bathroom skin is toggled from the settings menu.
+    try {
+      skinObserver = new MutationObserver(() => queueFitBathroomText());
+      skinObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-skin'],
+      });
+    } catch {
+      // ignore
+    }
+
+    window.addEventListener('resize', onResize);
+  });
+
+  onDestroy(() => {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', onResize);
+    }
+    skinObserver?.disconnect();
+    skinObserver = null;
   });
 </script>
 
 <div class="hero">
   <div class="compliment-stack">
-    <article class="compliment-card" aria-label="compliment" data-testid="compliment-card">
+    <article class="compliment-card" aria-label="compliment" data-testid="compliment-card" bind:this={cardEl}>
       <blockquote>
-        <p class="quote" data-testid="compliment">{text}</p>
+        <p class="quote" data-testid="compliment" bind:this={quoteEl}>{text}</p>
       </blockquote>
     </article>
   </div>
@@ -223,8 +339,13 @@
     letter-spacing: -0.01em;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 
-    /* Slightly smaller so it fits a square tile comfortably */
-    font-size: clamp(1.45rem, 3.2vw, 2.35rem);
+    /* Keep the measured box tight + centered for the circle-fit algorithm */
+    display: inline-block;
+    max-width: 72%;
+    text-wrap: balance;
+
+    /* Base size (JS may scale down further to fit the circle) */
+    font-size: clamp(1.4rem, 3.1vw, 2.25rem);
     line-height: 1.18;
   }
 

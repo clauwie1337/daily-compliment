@@ -19,6 +19,31 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
     expect(ratio).toBeLessThan(1.08);
   }
 
+  // Text should fit within the central circle (diagonal constraint)
+  await page.waitForTimeout(50); // allow rAF fitting to run
+  const fits = await page.evaluate(() => {
+    const root = document.documentElement;
+    const quote = document.querySelector('[data-testid="compliment"]');
+    const card = document.querySelector('[data-testid="compliment-card"]');
+    if (!quote || !card) return false;
+
+    const ratioRaw = getComputedStyle(root).getPropertyValue('--dc-bathroom-circle-diameter').trim();
+    const ratio = Number.parseFloat(ratioRaw);
+    const dRatio = Number.isFinite(ratio) && ratio > 0 && ratio <= 1 ? ratio : 0.76;
+
+    const rCard = card.getBoundingClientRect();
+    const size = Math.min(rCard.width, rCard.height);
+    const diameter = size * dRatio;
+    const margin = Math.max(12, Math.round(size * 0.05));
+    const maxDiagonal = Math.max(0, diameter - margin);
+
+    const rText = quote.getBoundingClientRect();
+    const diag = Math.hypot(rText.width, rText.height);
+
+    return diag <= maxDiagonal + 0.5;
+  });
+  expect(fits).toBe(true);
+
   // Reload and ensure it sticks
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-skin', 'bathroom');
