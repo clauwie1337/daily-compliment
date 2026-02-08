@@ -5,7 +5,7 @@ on:
   # Safety: never run automatically on pushes.
   push:
     branches-ignore:
-      - "**"
+      - "*"
     inputs:
       count:
         description: "How many new compliments to generate"
