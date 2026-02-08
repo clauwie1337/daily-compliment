@@ -79,12 +79,25 @@
     const seed = loadDeviceSeed();
     const seen = new Set(loadSeenIds());
 
-    // Optional day override for deterministic E2E.
+    // Optional overrides for deterministic E2E.
     const dayParam = getParam('dc_day');
     const day = dayParam && /^\d{4}-\d{2}-\d{2}$/.test(dayParam) ? (dayParam as DayKey) : undefined;
+    const forcedId = getParam('dc_id');
 
     const last = loadLastShown();
     const dayKey = day ?? undefined;
+
+    // If a specific id is forced, show it (useful for visual regression stability).
+    if (forcedId) {
+      const item = complimentsData.compliments.find((c) => c.id === forcedId);
+      if (item) {
+        seen.add(item.id);
+        saveSeenIds([...seen]);
+        saveLastShown({ id: item.id, dayKey });
+        text = item.text;
+        return;
+      }
+    }
 
     // If we have a last shown for this day, prefer it.
     if (last?.id) {
