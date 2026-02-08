@@ -63,6 +63,11 @@
   details.settings {
     position: relative;
     display: inline-block;
+    z-index: 10;
+  }
+
+  details.settings[open] {
+    z-index: 999;
   }
 
   summary.settings-button {
@@ -86,6 +91,10 @@
     display: none;
   }
 
+  summary.settings-button::marker {
+    content: "";
+  }
+
   details[open] summary.settings-button {
     color: var(--dc-text);
     border-color: rgba(15, 23, 42, 0.18);
@@ -101,6 +110,7 @@
     top: calc(100% + 0.5rem);
     right: 0;
     min-width: 18rem;
+    z-index: 1000;
 
     padding: 0.85rem;
     border-radius: 16px;
