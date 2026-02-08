@@ -2,10 +2,6 @@ name: Generate AI Compliments
 
 on:
   workflow_dispatch:
-  # Safety: never run automatically on pushes.
-  push:
-    branches-ignore:
-      - "*"
     inputs:
       count:
         description: "How many new compliments to generate"
