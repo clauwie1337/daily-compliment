@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ComplimentIsland from '../components/ComplimentIsland.svelte';
+import ThemeToggle from '../components/ThemeToggle.svelte';
 ---
 
 <BaseLayout title="Daily Compliment">
   <header class="app-header" aria-label="header">
+    <div class="header-spacer" aria-hidden="true"></div>
     <h1 class="title">Daily Compliment</h1>
+    <div class="header-actions">
+      <ThemeToggle client:load />
+    </div>
   </header>
 
   <ComplimentIsland client:load />

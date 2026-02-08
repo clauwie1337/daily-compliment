@@ -5,7 +5,8 @@
   Keep styles deterministic for Playwright visual regression.
 */
 
-:root {
+:root,
+:root[data-theme='light'] {
   /* Daily-Compliment palette (light mode) */
   --dc-bg: #f8fafc;
   --dc-surface: #ffffff;
@@ -30,6 +31,46 @@
   --pico-muted-border-color: rgba(15, 23, 42, 0.10);
   --pico-card-background-color: var(--dc-surface);
   --pico-card-border-color: rgba(15, 23, 42, 0.10);
+}
+
+:root[data-theme='dark'] {
+  --dc-bg: #070a12;
+  --dc-surface: rgba(15, 23, 42, 0.86);
+  --dc-text: #f8fafc;
+  --dc-muted: rgba(226, 232, 240, 0.80);
+  --dc-border: rgba(226, 232, 240, 0.14);
+
+  --dc-accent-1: #818cf8;
+  --dc-accent-2: #f472b6;
+  --dc-accent-3: #fbbf24;
+
+  --pico-background-color: var(--dc-bg);
+  --pico-color: var(--dc-text);
+  --pico-muted-color: var(--dc-muted);
+  --pico-muted-border-color: rgba(148, 163, 184, 0.20);
+  --pico-card-background-color: var(--dc-surface);
+  --pico-card-border-color: rgba(148, 163, 184, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --dc-bg: #070a12;
+    --dc-surface: rgba(15, 23, 42, 0.86);
+    --dc-text: #f8fafc;
+    --dc-muted: rgba(226, 232, 240, 0.80);
+    --dc-border: rgba(226, 232, 240, 0.14);
+
+    --dc-accent-1: #818cf8;
+    --dc-accent-2: #f472b6;
+    --dc-accent-3: #fbbf24;
+
+    --pico-background-color: var(--dc-bg);
+    --pico-color: var(--dc-text);
+    --pico-muted-color: var(--dc-muted);
+    --pico-muted-border-color: rgba(148, 163, 184, 0.20);
+    --pico-card-background-color: var(--dc-surface);
+    --pico-card-border-color: rgba(148, 163, 184, 0.22);
+  }
 }
 
 body {
@@ -84,8 +125,19 @@ main.app {
 }
 
 header.app-header {
-  text-align: center;
   margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-actions {
+  justify-self: end;
+}
+
+.header-spacer {
+  height: 1px;
 }
 
 header.app-header .title {
