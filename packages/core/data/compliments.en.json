@@ -4,724 +4,827 @@
   "compliments": [
     {
       "id": "en-0001",
-      "text": "You have a remarkable way of making people feel seen.",
+      "text": "You have the confidence of someone who’s never double-checked anything.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0002",
-      "text": "Your curiosity turns everyday moments into something interesting.",
+      "text": "You’re impressively consistent at choosing the hardest route.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ],
       "weight": 1
     },
     {
       "id": "en-0003",
-      "text": "You bring a calm competence to whatever you touch.",
+      "text": "Your optimism is inspiring—especially given the evidence.",
       "tags": [
-        "work"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0004",
-      "text": "You make hard things feel doable.",
+      "text": "You make bold decisions with the kind of certainty that’s… brave.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0005",
-      "text": "Your kindness has excellent timing.",
+      "text": "You bring a unique energy to every room. Not always helpful, but definitely unique.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0006",
-      "text": "You bring clarity to messy situations.",
+      "text": "You’re living proof that effort counts, even when results don’t show up.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0007",
-      "text": "You notice the details that make things better.",
+      "text": "You’re great at starting things. Endings are clearly a premium feature.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0008",
-      "text": "Your calm is contagious.",
+      "text": "You have a gift for turning simple tasks into character development.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0009",
-      "text": "You have a talent for turning intentions into action.",
+      "text": "Your patience is admirable—mostly because you test everyone else’s.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0010",
-      "text": "You’re the kind of person people trust with the real stuff.",
+      "text": "You’re surprisingly effective when you accidentally do the right thing.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0011",
-      "text": "You make space for other people to shine.",
+      "text": "You make being unbothered look like a full-time job.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0012",
-      "text": "Your curiosity keeps life interesting.",
+      "text": "You’re remarkably committed to your version of events.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0013",
-      "text": "You have a rare mix of focus and warmth.",
+      "text": "You have a talent for making questionable choices feel inevitable.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0014",
-      "text": "You ask the questions that move things forward.",
+      "text": "You’re the reason “plan B” gets so much practice.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0015",
-      "text": "You make progress without making noise about it.",
+      "text": "You keep things interesting. Consistency would be too easy anyway.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0016",
-      "text": "Your sense of humor makes everything lighter.",
+      "text": "You bring chaos with such confidence it almost feels intentional.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0017",
-      "text": "You follow through—and it shows.",
+      "text": "You’re incredibly brave to be this sure about something so uncertain.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0018",
-      "text": "You bring good energy without trying too hard.",
+      "text": "You have a rare ability to talk a lot without giving anything away.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0019",
-      "text": "You’re great at finding the next right step.",
+      "text": "You’re not afraid to be yourself—even when someone really should be.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0020",
-      "text": "You make people feel comfortable being themselves.",
+      "text": "You make multitasking look exactly as productive as it is.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0021",
-      "text": "Your perspective is genuinely useful.",
+      "text": "You’re a master of doing just enough to keep people guessing.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0022",
-      "text": "You’re quietly impressive.",
+      "text": "Your commitment to winging it is honestly impressive.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0023",
-      "text": "You make thoughtful choices.",
+      "text": "You’ve got impeccable timing—for the wrong moment.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0024",
-      "text": "You’re better at listening than most people.",
+      "text": "You’re great at finding problems no one asked for.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0025",
-      "text": "You have excellent taste.",
+      "text": "You’re proof that confidence is a renewable resource.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0026",
-      "text": "You spot patterns others miss.",
+      "text": "You make “learning as you go” feel like a lifestyle choice.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0027",
-      "text": "You’re the kind of consistent that builds trust.",
+      "text": "You’re the human version of “it’ll probably be fine.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0028",
-      "text": "You bring a steady hand to chaotic days.",
+      "text": "You have a special talent for missing the point with enthusiasm.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0029",
-      "text": "You make learning look natural.",
+      "text": "You’re wonderfully predictable—once you accept the unpredictability.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0030",
-      "text": "You keep your standards high and your ego low.",
+      "text": "You’re the kind of bold that keeps group chats alive.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0031",
-      "text": "You make things simpler without making them smaller.",
+      "text": "You’re excellent at turning feedback into a personal hobby.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0032",
-      "text": "You handle pressure with real grace.",
+      "text": "You make compromise look like an extreme sport.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0033",
-      "text": "You’re good at noticing what matters.",
+      "text": "You’re surprisingly hard to underestimate.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0034",
-      "text": "You make time feel well spent.",
+      "text": "You bring a lot of personality to the bare minimum.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0035",
-      "text": "You show up with intention.",
+      "text": "You have the rare skill of being confidently “almost right.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0036",
-      "text": "You’re the reason “teamwork” actually works.",
+      "text": "You’re incredibly consistent—at being inconsistent.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0037",
-      "text": "You bring momentum to the room.",
+      "text": "You make “close enough” feel like a philosophy.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0038",
-      "text": "Your creativity has range.",
+      "text": "You’re a natural at taking the scenic route to the obvious.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0039",
-      "text": "You’re surprisingly good at turning setbacks into setup.",
+      "text": "You have an impressive ability to complicate the simple.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0040",
-      "text": "You have a gift for making things feel possible.",
+      "text": "You’re the reason instructions come with pictures.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0041",
-      "text": "You bring warmth to your honesty.",
+      "text": "You’re so brave for thinking that was a good idea.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0042",
-      "text": "You’re strong in a quiet way.",
+      "text": "You’re wonderfully unapologetic for outcomes you definitely caused.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0043",
-      "text": "You’re the kind of person who makes good things happen.",
+      "text": "You make accountability feel like a rumor.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0044",
-      "text": "You have an eye for what will work.",
+      "text": "You’re skilled at turning small issues into full narratives.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0045",
-      "text": "You make the world feel less sharp.",
+      "text": "You’re honestly impressive at staying calm while being wrong.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0046",
-      "text": "You keep your promises to yourself.",
+      "text": "You make confidence look easy—and accuracy optional.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0047",
-      "text": "You have a genuinely generous spirit.",
+      "text": "You’re the kind of person who makes deadlines feel negotiable.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0048",
-      "text": "You make difficult conversations easier.",
+      "text": "You have a gift for finding the one weird edge case.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0049",
-      "text": "You’re good at starting.",
+      "text": "You bring a lot of enthusiasm to plans you won’t follow.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0050",
-      "text": "You’re even better at finishing.",
+      "text": "You’re extremely good at being your own biggest obstacle.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0051",
-      "text": "You make room for joy.",
+      "text": "You’re the reason “let’s circle back” exists.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0052",
-      "text": "Your effort is visible—in the best way.",
+      "text": "You make overthinking look like a competitive sport.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0053",
-      "text": "You bring order without killing the vibe.",
+      "text": "You’re great at having opinions. Evidence is secondary.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0054",
-      "text": "You’re excellent at finding signal in the noise.",
+      "text": "You have the confidence of a person with no browser history.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0055",
-      "text": "You make smart look effortless.",
+      "text": "You’re impressively unshaken by your own track record.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0056",
-      "text": "You’re a problem-solver with a human touch.",
+      "text": "You’re a bold mix of self-assured and unreconciled.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0057",
-      "text": "You make people feel supported, not managed.",
+      "text": "You make last-minute decisions with elite composure.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0058",
-      "text": "You’re dependable in the ways that matter.",
+      "text": "You’re excellent at making simple questions feel complicated.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0059",
-      "text": "You have the courage to adjust course.",
+      "text": "You’re the kind of reliable that keeps things… memorable.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0060",
-      "text": "You keep going, even when it’s boring.",
+      "text": "You’re great at being the main character of your own detours.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0061",
-      "text": "You make patience look like a superpower.",
+      "text": "You have strong opinions for someone who just arrived.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0062",
-      "text": "You have a way of making plans feel exciting.",
+      "text": "You’re brave for calling that “a plan.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0063",
-      "text": "You turn good ideas into good habits.",
+      "text": "You make “it’s fine” sound believable.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0064",
-      "text": "You’re a steady source of good judgment.",
+      "text": "You have a talent for turning clarity into confusion.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0065",
-      "text": "You bring honesty without harshness.",
+      "text": "You’re incredibly consistent at finding new ways to do the same thing.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0066",
-      "text": "You make space for nuance.",
+      "text": "You’re proof that persistence works—even on the wrong problem.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0067",
-      "text": "You’re excellent at spotting the win-win.",
+      "text": "You make meetings feel longer just by being present.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0068",
-      "text": "You make people feel included.",
+      "text": "You’re a great example of “learning in public.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0069",
-      "text": "You’re good at building things that last.",
+      "text": "You’re impressively committed to the bit.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0070",
-      "text": "You’re thoughtful with your words.",
+      "text": "You bring big energy to small details.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0071",
-      "text": "You have a strong sense of what’s important.",
+      "text": "You’re surprisingly good at making people lower expectations.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0072",
-      "text": "You bring a bright kind of calm.",
+      "text": "You have an amazing ability to make “soon” feel infinite.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0073",
-      "text": "You’re the kind of reliable that feels relaxing.",
+      "text": "You’re a walking reminder that rules are just suggestions.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0074",
-      "text": "You make improvement feel friendly.",
+      "text": "You’re the kind of person who makes silence feel loud.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0075",
-      "text": "You make “better” feel achievable.",
+      "text": "You have a gift for picking the one option with consequences.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0076",
-      "text": "You have a great instinct for timing.",
+      "text": "You’re brave enough to freestyle where others would prepare.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0077",
-      "text": "You bring out the best in a plan.",
+      "text": "You make “I meant to do that” sound convincing.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0078",
-      "text": "You’re good at turning confusion into clarity.",
+      "text": "You’re a master of turning certainty into chaos.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0079",
-      "text": "You make a positive difference without keeping score.",
+      "text": "You have an impressive tolerance for your own choices.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0080",
-      "text": "You handle complexity with confidence.",
+      "text": "You make “best effort” look like an aesthetic.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0081",
-      "text": "You’re courageous enough to be honest.",
+      "text": "You’re remarkably confident for someone with so little context.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0082",
-      "text": "You’re kind enough to be direct.",
+      "text": "You’re really good at arriving at conclusions.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0083",
-      "text": "You make small moments feel special.",
+      "text": "You bring a refreshing lack of hesitation.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0084",
-      "text": "You bring a lot of heart to what you do.",
+      "text": "You’re the reason people say “we’ll keep it simple.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0085",
-      "text": "You make space for other people’s ideas.",
+      "text": "You’re extremely good at making things “a whole thing.”",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0086",
-      "text": "You keep improving—and it’s noticeable.",
+      "text": "You have a talent for turning one task into five.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0087",
-      "text": "You’re good at choosing “done” over “perfect.”",
+      "text": "You make “quick question” feel like a trap.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0088",
-      "text": "You’re great at finding the simplest useful version.",
+      "text": "You’re impressively comfortable with unresolved situations.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0089",
-      "text": "You make feedback feel safe.",
+      "text": "You make being mysterious look like poor planning.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0090",
-      "text": "You make the next step feel obvious.",
+      "text": "You’re the kind of person who makes spreadsheets necessary.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0091",
-      "text": "You bring curiosity instead of judgment.",
+      "text": "You’ve got a rare ability to be both early and unready.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0092",
-      "text": "You have a steady kind of confidence.",
+      "text": "You make “I’ll figure it out” sound like a threat.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0093",
-      "text": "You make a room feel more human.",
+      "text": "You’re a strong reminder that vibes are not a strategy.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0094",
-      "text": "You’re the kind of person who raises the bar gently.",
+      "text": "You bring a lot of confidence to your uncertainty.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0095",
-      "text": "You make it easier to believe in good outcomes.",
+      "text": "You’re great at raising the bar—then walking under it.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0096",
-      "text": "You bring a lot of care into the details.",
+      "text": "You’re impressively resilient to constructive feedback.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0097",
-      "text": "You’re good at protecting your peace.",
+      "text": "You have a gift for choosing the loudest option.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0098",
-      "text": "You know how to reset and try again.",
+      "text": "You make the wrong choice with such style it almost counts.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0099",
-      "text": "You’re better than you think you are.",
+      "text": "You’re the reason “we should document this” gets said.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0100",
-      "text": "You make excellence feel approachable.",
+      "text": "You’re surprisingly hard to pin down—in every sense.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     },
     {
       "id": "en-0101",
-      "text": "You bring your whole brain and your whole heart.",
+      "text": "You have a talent for making simple fixes feel dramatic.",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0102",
-      "text": "You’re a bright spot in the day.",
+      "text": "You’re the human equivalent of “works on my machine.”",
       "tags": [
-        "general"
+        "backhanded",
+        "playful"
       ]
     },
     {
       "id": "en-0103",
-      "text": "You make generosity feel effortless.",
+      "text": "You make ambitious promises with admirable calm.",
       "tags": [
-        "general"
+        "backhanded",
+        "spicy"
       ]
     }
   ]
