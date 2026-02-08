@@ -95,6 +95,12 @@
     content: "";
   }
 
+  /* Pico adds a chevron via summary::after for <details>. Remove it for our icon-only button. */
+  summary.settings-button::after {
+    content: none !important;
+    display: none !important;
+  }
+
   details[open] summary.settings-button {
     color: var(--dc-text);
     border-color: rgba(15, 23, 42, 0.18);

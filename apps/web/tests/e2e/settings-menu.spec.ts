@@ -7,6 +7,11 @@ test('settings menu renders above the compliment card', async ({ page }) => {
   await page.goto('/?dc_seed=settings&dc_day=2026-02-07&dc_id=en-0003');
 
   const settings = page.getByLabel('Settings', { exact: true });
+
+  // Ensure no disclosure chevron is rendered (Pico adds one for <summary> by default).
+  const afterContent = await settings.evaluate((el) => getComputedStyle(el, '::after').content);
+  expect(afterContent === 'none' || afterContent === '""').toBe(true);
+
   await settings.click();
 
   const panel = page.getByRole('menu', { name: 'Settings menu' });
