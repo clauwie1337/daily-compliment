@@ -5,18 +5,724 @@
     {
       "id": "en-0001",
       "text": "You have a remarkable way of making people feel seen.",
-      "tags": ["general"]
+      "tags": [
+        "general"
+      ]
     },
     {
       "id": "en-0002",
       "text": "Your curiosity turns everyday moments into something interesting.",
-      "tags": ["general"],
+      "tags": [
+        "general"
+      ],
       "weight": 1
     },
     {
       "id": "en-0003",
       "text": "You bring a calm competence to whatever you touch.",
-      "tags": ["work"]
+      "tags": [
+        "work"
+      ]
+    },
+    {
+      "id": "en-0004",
+      "text": "You make hard things feel doable.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0005",
+      "text": "Your kindness has excellent timing.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0006",
+      "text": "You bring clarity to messy situations.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0007",
+      "text": "You notice the details that make things better.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0008",
+      "text": "Your calm is contagious.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0009",
+      "text": "You have a talent for turning intentions into action.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0010",
+      "text": "You’re the kind of person people trust with the real stuff.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0011",
+      "text": "You make space for other people to shine.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0012",
+      "text": "Your curiosity keeps life interesting.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0013",
+      "text": "You have a rare mix of focus and warmth.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0014",
+      "text": "You ask the questions that move things forward.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0015",
+      "text": "You make progress without making noise about it.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0016",
+      "text": "Your sense of humor makes everything lighter.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0017",
+      "text": "You follow through—and it shows.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0018",
+      "text": "You bring good energy without trying too hard.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0019",
+      "text": "You’re great at finding the next right step.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0020",
+      "text": "You make people feel comfortable being themselves.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0021",
+      "text": "Your perspective is genuinely useful.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0022",
+      "text": "You’re quietly impressive.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0023",
+      "text": "You make thoughtful choices.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0024",
+      "text": "You’re better at listening than most people.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0025",
+      "text": "You have excellent taste.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0026",
+      "text": "You spot patterns others miss.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0027",
+      "text": "You’re the kind of consistent that builds trust.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0028",
+      "text": "You bring a steady hand to chaotic days.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0029",
+      "text": "You make learning look natural.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0030",
+      "text": "You keep your standards high and your ego low.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0031",
+      "text": "You make things simpler without making them smaller.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0032",
+      "text": "You handle pressure with real grace.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0033",
+      "text": "You’re good at noticing what matters.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0034",
+      "text": "You make time feel well spent.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0035",
+      "text": "You show up with intention.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0036",
+      "text": "You’re the reason “teamwork” actually works.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0037",
+      "text": "You bring momentum to the room.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0038",
+      "text": "Your creativity has range.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0039",
+      "text": "You’re surprisingly good at turning setbacks into setup.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0040",
+      "text": "You have a gift for making things feel possible.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0041",
+      "text": "You bring warmth to your honesty.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0042",
+      "text": "You’re strong in a quiet way.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0043",
+      "text": "You’re the kind of person who makes good things happen.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0044",
+      "text": "You have an eye for what will work.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0045",
+      "text": "You make the world feel less sharp.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0046",
+      "text": "You keep your promises to yourself.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0047",
+      "text": "You have a genuinely generous spirit.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0048",
+      "text": "You make difficult conversations easier.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0049",
+      "text": "You’re good at starting.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0050",
+      "text": "You’re even better at finishing.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0051",
+      "text": "You make room for joy.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0052",
+      "text": "Your effort is visible—in the best way.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0053",
+      "text": "You bring order without killing the vibe.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0054",
+      "text": "You’re excellent at finding signal in the noise.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0055",
+      "text": "You make smart look effortless.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0056",
+      "text": "You’re a problem-solver with a human touch.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0057",
+      "text": "You make people feel supported, not managed.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0058",
+      "text": "You’re dependable in the ways that matter.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0059",
+      "text": "You have the courage to adjust course.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0060",
+      "text": "You keep going, even when it’s boring.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0061",
+      "text": "You make patience look like a superpower.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0062",
+      "text": "You have a way of making plans feel exciting.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0063",
+      "text": "You turn good ideas into good habits.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0064",
+      "text": "You’re a steady source of good judgment.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0065",
+      "text": "You bring honesty without harshness.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0066",
+      "text": "You make space for nuance.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0067",
+      "text": "You’re excellent at spotting the win-win.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0068",
+      "text": "You make people feel included.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0069",
+      "text": "You’re good at building things that last.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0070",
+      "text": "You’re thoughtful with your words.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0071",
+      "text": "You have a strong sense of what’s important.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0072",
+      "text": "You bring a bright kind of calm.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0073",
+      "text": "You’re the kind of reliable that feels relaxing.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0074",
+      "text": "You make improvement feel friendly.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0075",
+      "text": "You make “better” feel achievable.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0076",
+      "text": "You have a great instinct for timing.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0077",
+      "text": "You bring out the best in a plan.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0078",
+      "text": "You’re good at turning confusion into clarity.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0079",
+      "text": "You make a positive difference without keeping score.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0080",
+      "text": "You handle complexity with confidence.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0081",
+      "text": "You’re courageous enough to be honest.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0082",
+      "text": "You’re kind enough to be direct.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0083",
+      "text": "You make small moments feel special.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0084",
+      "text": "You bring a lot of heart to what you do.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0085",
+      "text": "You make space for other people’s ideas.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0086",
+      "text": "You keep improving—and it’s noticeable.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0087",
+      "text": "You’re good at choosing “done” over “perfect.”",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0088",
+      "text": "You’re great at finding the simplest useful version.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0089",
+      "text": "You make feedback feel safe.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0090",
+      "text": "You make the next step feel obvious.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0091",
+      "text": "You bring curiosity instead of judgment.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0092",
+      "text": "You have a steady kind of confidence.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0093",
+      "text": "You make a room feel more human.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0094",
+      "text": "You’re the kind of person who raises the bar gently.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0095",
+      "text": "You make it easier to believe in good outcomes.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0096",
+      "text": "You bring a lot of care into the details.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0097",
+      "text": "You’re good at protecting your peace.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0098",
+      "text": "You know how to reset and try again.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0099",
+      "text": "You’re better than you think you are.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0100",
+      "text": "You make excellence feel approachable.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0101",
+      "text": "You bring your whole brain and your whole heart.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0102",
+      "text": "You’re a bright spot in the day.",
+      "tags": [
+        "general"
+      ]
+    },
+    {
+      "id": "en-0103",
+      "text": "You make generosity feel effortless.",
+      "tags": [
+        "general"
+      ]
     }
   ]
 }
