@@ -12,10 +12,11 @@ test('bathroom wisdom dark visual', async ({ page }) => {
 
   await page.goto('/?dc_id=en-0009');
 
-  await expect(page.getByTestId('compliment-card')).toBeVisible();
+  const card = page.getByTestId('compliment-card');
+  await expect(card).toBeVisible();
 
   // Give the circle-fitting rAF a moment.
   await page.waitForTimeout(50);
 
-  await expect(page).toHaveScreenshot('bathroom-dark.png');
+  await expect(card).toHaveScreenshot('bathroom-dark.png');
 });
