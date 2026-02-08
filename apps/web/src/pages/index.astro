@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ComplimentIsland from '../components/ComplimentIsland.svelte';
-import ThemeToggle from '../components/ThemeToggle.svelte';
+import SettingsMenu from '../components/SettingsMenu.svelte';
 ---
 
 <BaseLayout title="Daily Compliment">
@@ -9,7 +9,7 @@ import ThemeToggle from '../components/ThemeToggle.svelte';
     <div class="header-spacer" aria-hidden="true"></div>
     <h1 class="title">Daily Compliment</h1>
     <div class="header-actions">
-      <ThemeToggle client:load />
+      <SettingsMenu client:load />
     </div>
   </header>
 
