@@ -215,6 +215,15 @@
     color: var(--dc-text);
   }
 
+  /* Bathroom wisdom: handwritten blue ink on tile */
+  :global(:root[data-skin='bathroom']) .quote {
+    color: var(--dc-ink, #1d4ed8);
+    font-family: ui-rounded, "Segoe Print", "Bradley Hand", "Comic Sans MS", "Apple Chancery", cursive;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
   .hero {
     display: grid;
     gap: 1.25rem;

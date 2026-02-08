@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import ThemeToggle from './ThemeToggle.svelte';
+  import SkinToggle from './SkinToggle.svelte';
 
   let root: HTMLDetailsElement | null = null;
 
@@ -51,6 +52,13 @@
         <div class="item-label">Theme</div>
         <div class="item-control">
           <ThemeToggle />
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-label">Style</div>
+        <div class="item-control">
+          <SkinToggle />
         </div>
       </div>
     </div>

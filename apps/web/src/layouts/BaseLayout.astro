@@ -21,12 +21,20 @@ const base = import.meta.env.BASE_URL;
     <script is:inline>
       (() => {
         try {
-          const key = 'dc:theme';
-          const saved = localStorage.getItem(key);
-          if (saved === 'light' || saved === 'dark') {
-            document.documentElement.setAttribute('data-theme', saved);
+          const themeKey = 'dc:theme';
+          const themeSaved = localStorage.getItem(themeKey);
+          if (themeSaved === 'light' || themeSaved === 'dark') {
+            document.documentElement.setAttribute('data-theme', themeSaved);
           } else {
             document.documentElement.removeAttribute('data-theme');
+          }
+
+          const skinKey = 'dc:skin';
+          const skinSaved = localStorage.getItem(skinKey);
+          if (skinSaved === 'bathroom') {
+            document.documentElement.setAttribute('data-skin', 'bathroom');
+          } else {
+            document.documentElement.removeAttribute('data-skin');
           }
         } catch {
           // ignore
