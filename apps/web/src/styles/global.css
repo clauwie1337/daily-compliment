@@ -190,23 +190,60 @@ body::after {
 }
 
 :root[data-skin='bathroom'] article.compliment-card {
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(180deg, rgba(11, 27, 58, 0.22), rgba(11, 27, 58, 0.10)) border-box;
+  /* Make it feel like a ceramic tile: crisp edges + slight bevel */
+  border-radius: 6px;
+  border: 2px solid rgba(29, 78, 216, 0.18);
+
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
 
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.10),
     0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+:root[data-skin='bathroom'] article.compliment-card::before {
+  /* Inner grout-ish frame */
+  content: "";
+  position: absolute;
+  inset: 0.7rem;
+  border-radius: 4px;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(29, 78, 216, 0.14),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+
+  opacity: 0.95;
+}
+
 :root[data-skin='bathroom'] article.compliment-card::after {
-  /* Turn the confetti into a super subtle glaze sparkle */
+  /* Blue decorative edge pattern */
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border-radius: 4px;
+  pointer-events: none;
+
   background:
-    radial-gradient(circle at 14% 22%, rgba(96, 165, 250, 0.10) 0 3px, transparent 4px),
-    radial-gradient(circle at 86% 18%, rgba(37, 99, 235, 0.08) 0 4px, transparent 5px),
-    radial-gradient(circle at 78% 78%, rgba(29, 78, 216, 0.06) 0 3px, transparent 4px),
-    radial-gradient(circle at 22% 82%, rgba(96, 165, 250, 0.08) 0 4px, transparent 5px);
-  opacity: 0.45;
+    /* corner dots */
+    radial-gradient(circle at 0% 0%, rgba(29, 78, 216, 0.22) 0 6px, transparent 7px),
+    radial-gradient(circle at 100% 0%, rgba(29, 78, 216, 0.22) 0 6px, transparent 7px),
+    radial-gradient(circle at 0% 100%, rgba(29, 78, 216, 0.22) 0 6px, transparent 7px),
+    radial-gradient(circle at 100% 100%, rgba(29, 78, 216, 0.22) 0 6px, transparent 7px),
+
+    /* top + bottom */
+    repeating-linear-gradient(90deg, transparent 0 14px, rgba(29, 78, 216, 0.16) 14px 18px) top / 100% 10px
+      no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 14px, rgba(29, 78, 216, 0.16) 14px 18px) bottom / 100% 10px
+      no-repeat,
+
+    /* left + right */
+    repeating-linear-gradient(0deg, transparent 0 14px, rgba(29, 78, 216, 0.16) 14px 18px) left / 10px 100%
+      no-repeat,
+    repeating-linear-gradient(0deg, transparent 0 14px, rgba(29, 78, 216, 0.16) 14px 18px) right / 10px 100%
+      no-repeat;
+
+  opacity: 0.9;
 }
 
 :root[data-skin='bathroom'] .actions-bar {

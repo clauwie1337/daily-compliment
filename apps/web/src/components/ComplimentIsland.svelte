@@ -222,6 +222,32 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    /* Slightly smaller so it fits a square tile comfortably */
+    font-size: clamp(1.45rem, 3.2vw, 2.35rem);
+    line-height: 1.18;
+  }
+
+  /* Make the quote container feel like a single square tile (no stacked-card illusion). */
+  :global(:root[data-skin='bathroom']) .compliment-stack::before,
+  :global(:root[data-skin='bathroom']) .compliment-stack::after {
+    content: none;
+  }
+
+  :global(:root[data-skin='bathroom']) .compliment-stack {
+    width: min(30rem, 100%);
+  }
+
+  :global(:root[data-skin='bathroom']) article.compliment-card {
+    aspect-ratio: 1 / 1;
+    padding: 1.4rem;
+
+    display: grid;
+    place-items: center;
+  }
+
+  :global(:root[data-skin='bathroom']) article.compliment-card blockquote {
+    width: 100%;
   }
 
   .hero {
