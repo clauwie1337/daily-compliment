@@ -4,8 +4,8 @@ import ComplimentIsland from '../components/ComplimentIsland.svelte';
 ---
 
 <BaseLayout title="Daily Compliment">
-  <header class="app-header">
-    <h1>Daily Compliment</h1>
+  <header class="app-header" aria-label="header">
+    <h1 class="title">Daily Compliment</h1>
   </header>
 
   <ComplimentIsland client:load />

@@ -158,10 +158,10 @@
     <p class="quote" data-testid="compliment">{text}</p>
   </blockquote>
 
-  <div class="meta" aria-label="compliment-meta">{meta}</div>
+  <div class="meta" aria-label="compliment-meta"><span class="meta-pill">{meta}</span></div>
 
   <div class="actions" aria-label="actions">
-    <button type="button" on:click={next} data-testid="next">Next</button>
+    <button type="button" class="primary" on:click={next} data-testid="next">Next</button>
     <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">
       Reset
     </button>
@@ -179,10 +179,19 @@
   }
 
   .meta {
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     text-align: center;
-    opacity: 0.7;
     font-size: 0.95rem;
+  }
+
+  .meta-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    opacity: 0.9;
   }
 
   .actions {
