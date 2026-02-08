@@ -16,6 +16,9 @@ importers:
       '@daily-compliment/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@picocss/pico':
+        specifier: ^2.1.1
+        version: 2.1.1
       astro:
         specifier: ^5.17.1
         version: 5.17.1(@types/node@22.19.9)(rollup@4.57.1)(typescript@5.9.3)(yaml@2.8.2)
@@ -716,6 +719,9 @@ packages:
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
+
+  '@picocss/pico@2.1.1':
+    resolution: {integrity: sha512-kIDugA7Ps4U+2BHxiNHmvgPIQDWPDU4IeU6TNRdvXQM1uZX+FibqDQT2xUOnnO2yq/LUHcwnGlu1hvf4KfXnMg==}
 
   '@pkgr/core@0.2.9':
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
@@ -3320,6 +3326,8 @@ snapshots:
       fastq: 1.20.1
 
   '@oslojs/encoding@1.1.0': {}
+
+  '@picocss/pico@2.1.1': {}
 
   '@pkgr/core@0.2.9': {}
 

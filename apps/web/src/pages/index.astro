@@ -4,8 +4,9 @@ import ComplimentIsland from '../components/ComplimentIsland.svelte';
 ---
 
 <BaseLayout title="Daily Compliment">
-  <h1>Daily Compliment</h1>
-  <p>A tiny app that gives you a compliment and remembers what you’ve already seen (per device).</p>
+  <header class="app-header">
+    <h1>Daily Compliment</h1>
+  </header>
 
   <ComplimentIsland client:load />
 </BaseLayout>

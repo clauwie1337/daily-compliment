@@ -13,6 +13,9 @@
     "test": "vitest",
     "test:unit": "vitest run",
     "pretest:e2e": "pnpm build",
+    "pretest:e2e:update": "pnpm build",
+    "pretest:e2e:local": "pnpm build",
+    "pretest:e2e:local:update": "pnpm build",
     "pw:deps:local": "node scripts/install-playwright-deps-local.mjs",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
@@ -25,6 +28,7 @@
   "dependencies": {
     "@astrojs/svelte": "^7.2.5",
     "@daily-compliment/core": "workspace:*",
+    "@picocss/pico": "^2.1.1",
     "astro": "^5.17.1",
     "svelte": "^5.50.0"
   },

@@ -153,54 +153,43 @@
   });
 </script>
 
-<section class="card" aria-label="compliment">
-  <div class="text" data-testid="compliment">{text}</div>
+<article class="compliment-card" aria-label="compliment">
+  <blockquote>
+    <p class="quote" data-testid="compliment">{text}</p>
+  </blockquote>
+
   <div class="meta" aria-label="compliment-meta">{meta}</div>
 
-  <div class="actions">
+  <div class="actions" aria-label="actions">
     <button type="button" on:click={next} data-testid="next">Next</button>
-    <button type="button" class="secondary" on:click={resetHistory} data-testid="reset">
+    <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">
       Reset
     </button>
   </div>
-</section>
+</article>
 
 <style>
-  .card {
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    max-width: 50rem;
-  }
-
-  .text {
-    font-size: 1.2rem;
-    line-height: 1.6;
+  .quote {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-align: center;
+    margin: 0;
   }
 
   .meta {
-    margin-top: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
+    margin-top: 0.9rem;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.95rem;
   }
 
   .actions {
+    margin-top: 1.25rem;
     display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  button {
-    padding: 0.45rem 0.75rem;
-    border-radius: 10px;
-    border: 1px solid #bbb;
-    background: white;
-    cursor: pointer;
-  }
-
-  button.secondary {
-    color: #333;
-    background: #f7f7f7;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 </style>
