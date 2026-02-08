@@ -16,7 +16,6 @@
   const complimentsData = data as unknown as ComplimentsData;
 
   let text = '…';
-  let meta = '';
 
   function getParam(name: string): string | null {
     try {
@@ -94,7 +93,6 @@
         seen.add(item.id);
         saveSeenIds([...seen]);
         text = item.text;
-        meta = `#${item.id}`;
         return;
       }
     }
@@ -111,7 +109,6 @@
     saveLastShown({ id: result.compliment.id, dayKey: result.dayKey });
 
     text = result.compliment.text;
-    meta = `#${result.compliment.id}`;
   }
 
   function next() {
@@ -137,7 +134,6 @@
     saveLastShown({ id: result.compliment.id });
 
     text = result.compliment.text;
-    meta = `#${result.compliment.id}`;
   }
 
   function resetHistory() {
@@ -157,16 +153,12 @@
   <blockquote>
     <p class="quote" data-testid="compliment">{text}</p>
   </blockquote>
-
-  <div class="meta" aria-label="compliment-meta"><span class="meta-pill">{meta}</span></div>
-
-  <div class="actions" aria-label="actions">
-    <button type="button" class="primary" on:click={next} data-testid="next">Next</button>
-    <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">
-      Reset
-    </button>
-  </div>
 </article>
+
+<div class="actions-bar" aria-label="actions">
+  <button type="button" class="primary" on:click={next} data-testid="next">Next</button>
+  <button type="button" class="secondary outline" on:click={resetHistory} data-testid="reset">Reset</button>
+</div>
 
 <style>
   .quote {
@@ -179,27 +171,24 @@
     color: var(--dc-text);
   }
 
-  .meta {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.95rem;
-  }
-
-  .meta-pill {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.14);
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--dc-muted);
-    opacity: 1;
-  }
-
-  .actions {
+  .actions-bar {
     margin-top: 1.25rem;
     display: flex;
     justify-content: center;
     gap: 0.75rem;
     flex-wrap: wrap;
+
+    padding: 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Make the pill not stretch full width on mobile */
+  .actions-bar :global(button) {
+    width: auto;
+    margin-bottom: 0;
   }
 </style>
