@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
+  import { pickCompliment, toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
   import data from '@daily-compliment/core/data/compliments.en.json';
 
   type LastShown = {
