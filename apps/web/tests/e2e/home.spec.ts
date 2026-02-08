@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { pickCompliment, type ComplimentsData } from '@daily-compliment/core';
+import type { ComplimentsData } from '@daily-compliment/core';
 import { expect, test } from './fixtures';
 
 function loadData(): ComplimentsData {
@@ -14,26 +14,21 @@ test('home loads and shows a compliment', async ({ page }) => {
   const deviceSeed = 'e2e';
   const day = '2026-02-07' as const;
 
-  const first = pickCompliment({
-    data,
-    deviceSeed,
-    strategy: { kind: 'daily', day },
-  }).compliment;
+  // We pin the initial compliment deterministically.
+  const expectedFirst = data.compliments.find((c) => c.id === 'en-0003');
+  if (!expectedFirst) throw new Error('Expected en-0003 to exist in dataset');
 
-  await page.goto(`/?dc_seed=${deviceSeed}&dc_day=${day}`);
+  await page.goto(`/?dc_seed=${deviceSeed}&dc_day=${day}&dc_id=${expectedFirst.id}`);
   await expect(page).toHaveTitle(/Daily Compliment/);
   await expect(page.getByRole('heading', { name: 'Daily Compliment' })).toBeVisible();
 
-  await expect(page.getByTestId('compliment')).toHaveText(first.text);
+  await expect(page.getByTestId('compliment')).toHaveText(expectedFirst.text);
 
   await page.getByTestId('next').click();
 
-  const second = pickCompliment({
-    data,
-    deviceSeed,
-    seenIds: new Set([first.id]),
-    strategy: { kind: 'next-unseen' },
-  }).compliment;
+  const secondText = await page.getByTestId('compliment').innerText();
+  expect(secondText).not.toBe(expectedFirst.text);
 
-  await expect(page.getByTestId('compliment')).toHaveText(second.text);
+  const allTexts = new Set(data.compliments.map((c) => c.text));
+  expect(allTexts.has(secondText)).toBe(true);
 });

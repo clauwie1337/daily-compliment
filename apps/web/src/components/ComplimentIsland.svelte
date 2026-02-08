@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { pickCompliment, toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
+  import { toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
   import data from '@daily-compliment/core/data/compliments.en.json';
 
   type LastShown = {
@@ -146,28 +146,34 @@
   }
 
   function next() {
-    const seed = loadDeviceSeed();
+    // Next should be random (not deterministic by seed), while still avoiding repeats per device.
     const seen = new Set(loadSeenIds());
 
-    const result = pickCompliment({
-      data: complimentsData,
-      deviceSeed: seed,
-      seenIds: seen,
-      strategy: { kind: 'next-unseen' },
-    });
+    const all = complimentsData.compliments;
+    const unseen = all.filter((c) => !seen.has(c.id));
 
-    if (result.exhausted) {
-      // Reset if we ran out.
+    // If we ran out, reset and start fresh.
+    const pool = unseen.length > 0 ? unseen : all;
+    if (unseen.length === 0) {
       saveSeenIds([]);
       localStorage.removeItem(STORAGE.lastShown);
+      seen.clear();
     }
 
-    const seen2 = new Set(loadSeenIds());
-    seen2.add(result.compliment.id);
-    saveSeenIds([...seen2]);
-    saveLastShown({ id: result.compliment.id });
+    if (pool.length === 0) return;
 
-    text = result.compliment.text;
+    const u32 = new Uint32Array(1);
+    if (typeof crypto !== 'undefined' && 'getRandomValues' in crypto) crypto.getRandomValues(u32);
+    const idx = u32[0]! % pool.length;
+
+    const item = pool[idx]!;
+
+    const seen2 = new Set(loadSeenIds());
+    seen2.add(item.id);
+    saveSeenIds([...seen2]);
+    saveLastShown({ id: item.id });
+
+    text = item.text;
   }
 
   function resetHistory() {
