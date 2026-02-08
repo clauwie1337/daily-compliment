@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { pickCompliment, type ComplimentsData, type DayKey } from '@daily-compliment/core';
+  import { pickCompliment, toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
   import data from '@daily-compliment/core/data/compliments.en.json';
 
   type LastShown = {
@@ -76,16 +76,20 @@
   }
 
   function pickInitial() {
-    const seed = loadDeviceSeed();
-    const seen = new Set(loadSeenIds());
-
     // Optional overrides for deterministic E2E.
     const dayParam = getParam('dc_day');
     const day = dayParam && /^\d{4}-\d{2}-\d{2}$/.test(dayParam) ? (dayParam as DayKey) : undefined;
     const forcedId = getParam('dc_id');
+    const seedOverride = getParam('dc_seed');
+
+    const hadSeedBefore = !seedOverride && localStorage.getItem(STORAGE.deviceSeed);
+    const deterministicMode = !!seedOverride || !!day || !!forcedId;
+
+    const seed = loadDeviceSeed();
+    const seen = new Set(loadSeenIds());
 
     const last = loadLastShown();
-    const dayKey = day ?? undefined;
+    const effectiveDayKey = day ?? toUtcDayKey(new Date());
 
     // If a specific id is forced, show it (useful for visual regression stability).
     if (forcedId) {
@@ -93,7 +97,24 @@
       if (item) {
         seen.add(item.id);
         saveSeenIds([...seen]);
-        saveLastShown({ id: item.id, dayKey });
+        saveLastShown({ id: item.id, dayKey: effectiveDayKey });
+        text = item.text;
+        return;
+      }
+    }
+
+    // First-ever visit (no stored seed, no deterministic overrides): show a truly random compliment.
+    if (!deterministicMode && !hadSeedBefore && !last?.id && seen.size === 0) {
+      const list = complimentsData.compliments;
+      if (list.length > 0) {
+        const u32 = new Uint32Array(1);
+        if (typeof crypto !== 'undefined' && 'getRandomValues' in crypto) crypto.getRandomValues(u32);
+        const idx = list.length > 0 ? u32[0]! % list.length : 0;
+        const item = list[idx]!;
+
+        seen.add(item.id);
+        saveSeenIds([...seen]);
+        saveLastShown({ id: item.id, dayKey: effectiveDayKey });
         text = item.text;
         return;
       }
@@ -102,7 +123,7 @@
     // If we have a last shown for this day, prefer it.
     if (last?.id) {
       const item = complimentsData.compliments.find((c) => c.id === last.id);
-      if (item && (!last.dayKey || !dayKey || last.dayKey === dayKey)) {
+      if (item && (!last.dayKey || last.dayKey === effectiveDayKey)) {
         seen.add(item.id);
         saveSeenIds([...seen]);
         text = item.text;
