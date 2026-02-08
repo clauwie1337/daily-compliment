@@ -162,11 +162,56 @@ body::after {
   --dc-accent-2: #2563eb;
   --dc-accent-3: #60a5fa;
 
+  /* Header tile art (simple Delft-ish border, original SVG) */
+  --dc-bathroom-header-art: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cstyle%3E.d%7Bfill:none%3Bstroke:%231d4ed8%3Bstroke-width:7%3Bstroke-linecap:round%3Bstroke-linejoin:round%7D.l%7Bfill:none%3Bstroke:%2393c5fd%3Bstroke-width:7%3Bstroke-linecap:round%3Bstroke-linejoin:round%3Bopacity:.9%7D.fd%7Bfill:%231d4ed8%3Bopacity:.9%7D.fl%7Bfill:%2393c5fd%3Bopacity:.9%7D%3C/style%3E%3C/defs%3E%3Crect x='10' y='10' width='180' height='180' rx='18' class='l'/%3E%3Crect x='16' y='16' width='168' height='168' rx='16' class='d' opacity='.25'/%3E%3Ccircle cx='100' cy='108' r='72' class='l' opacity='.55'/%3E%3Ccircle cx='100' cy='108' r='66' class='d'/%3E%3Ccircle cx='100' cy='108' r='69' class='l' stroke-dasharray='1 14' opacity='.55'/%3E%3Cpath class='fd' d='M26 34c-3-5-10-3-10 3c0 8 10 12 10 12s10-4 10-12c0-6-7-8-10-3z'/%3E%3Cpath class='fd' d='M174 34c-3-5-10-3-10 3c0 8 10 12 10 12s10-4 10-12c0-6-7-8-10-3z'/%3E%3Cpath class='fd' d='M26 166c-3-5-10-3-10 3c0 8 10 12 10 12s10-4 10-12c0-6-7-8-10-3z'/%3E%3Cpath class='fd' d='M174 166c-3-5-10-3-10 3c0 8 10 12 10 12s10-4 10-12c0-6-7-8-10-3z'/%3E%3Cg transform='translate(100 34)'%3E%3Ccircle r='4' class='fd'/%3E%3Ccircle cx='-10' cy='0' r='5' class='fl'/%3E%3Ccircle cx='10' cy='0' r='5' class='fl'/%3E%3Ccircle cx='0' cy='-10' r='5' class='fl'/%3E%3Ccircle cx='0' cy='10' r='5' class='fl'/%3E%3C/g%3E%3Cg transform='translate(100 182)'%3E%3Ccircle r='4' class='fd'/%3E%3Ccircle cx='-10' cy='0' r='5' class='fl'/%3E%3Ccircle cx='10' cy='0' r='5' class='fl'/%3E%3Ccircle cx='0' cy='-10' r='5' class='fl'/%3E%3Ccircle cx='0' cy='10' r='5' class='fl'/%3E%3C/g%3E%3Cpath class='fl' d='M18 100c10-18 22-18 32 0c-10 18-22 18-32 0z' opacity='.9'/%3E%3Cpath class='fl' d='M182 100c-10-18-22-18-32 0c10 18 22 18 32 0z' opacity='.9'/%3E%3C/svg%3E");
+
   --pico-background-color: var(--dc-bg);
   --pico-color: var(--dc-text);
   --pico-muted-color: var(--dc-muted);
   --pico-card-background-color: var(--dc-surface);
   --pico-card-border-color: rgba(11, 27, 58, 0.14);
+}
+
+:root[data-skin='bathroom'] header.app-header .title {
+  /* Replace the default gradient title with a square Delft-tile badge. */
+  color: var(--dc-ink);
+  background: none;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+
+  /* Disable gradient-text behavior from the default theme. */
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+
+  width: clamp(9.75rem, 22vw, 12.5rem);
+  aspect-ratio: 1 / 1;
+  margin: 0;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  padding: 1.4rem 1.1rem;
+  border-radius: 16px;
+
+  border: 2px solid rgba(29, 78, 216, 0.18);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.10);
+
+  background-image: linear-gradient(180deg, #ffffff, #f8fbff), var(--dc-bathroom-header-art);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  font-family: ui-rounded, "Segoe Print", "Bradley Hand", "Comic Sans MS", "Apple Chancery", cursive;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  line-height: 1.25;
+}
+
+:root[data-skin='bathroom'] header.app-header .title::after {
+  content: none;
+  display: none;
 }
 
 :root[data-skin='bathroom'] body {
