@@ -342,11 +342,19 @@
     /* Keep the measured box tight + centered for the circle-fit algorithm */
     display: inline-block;
     max-width: 72%;
+    margin-inline: auto;
+    text-align: center;
     text-wrap: balance;
 
     /* Base size (JS may scale down further to fit the circle) */
     font-size: clamp(1.4rem, 3.1vw, 2.25rem);
     line-height: 1.18;
+  }
+
+  :global(:root[data-skin='bathroom']) article.compliment-card blockquote {
+    display: grid;
+    place-items: center;
+    width: 100%;
   }
 
   /* Make the quote container feel like a single square tile (no stacked-card illusion). */

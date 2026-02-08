@@ -25,7 +25,7 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
     const root = document.documentElement;
     const quote = document.querySelector('[data-testid="compliment"]');
     const card = document.querySelector('[data-testid="compliment-card"]');
-    if (!quote || !card) return false;
+    if (!quote || !card) return { ok: false, reason: 'missing-elements' };
 
     const ratioRaw = getComputedStyle(root).getPropertyValue('--dc-bathroom-circle-diameter').trim();
     const ratio = Number.parseFloat(ratioRaw);
@@ -38,11 +38,26 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
     const maxDiagonal = Math.max(0, diameter - margin);
 
     const rText = quote.getBoundingClientRect();
+
+    // Must be centered (otherwise it can still clip even if diagonal fits).
+    const cardCx = rCard.left + rCard.width / 2;
+    const cardCy = rCard.top + rCard.height / 2;
+    const textCx = rText.left + rText.width / 2;
+    const textCy = rText.top + rText.height / 2;
+    const dx = Math.abs(textCx - cardCx);
+    const dy = Math.abs(textCy - cardCy);
+
     const diag = Math.hypot(rText.width, rText.height);
 
-    return diag <= maxDiagonal + 0.5;
+    return {
+      ok: diag <= maxDiagonal + 0.5 && dx <= 2 && dy <= 2,
+      diag,
+      maxDiagonal,
+      dx,
+      dy,
+    };
   });
-  expect(fits).toBe(true);
+  expect(fits.ok).toBe(true);
 
   // Reload and ensure it sticks
   await page.reload();
