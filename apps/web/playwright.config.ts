@@ -51,7 +51,7 @@ export default defineConfig({
     },
   },
   use: {
-    baseURL: 'http://127.0.0.1:4321',
+    baseURL: 'http://localhost:4321',
 
     // Determinism
     locale: 'en-US',
@@ -77,7 +77,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'pnpm preview',
-    url: 'http://127.0.0.1:4321',
+    url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
   },
 });
