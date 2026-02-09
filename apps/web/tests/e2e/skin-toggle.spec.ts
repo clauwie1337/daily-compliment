@@ -9,18 +9,23 @@ test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
   // Open settings
   await page.locator('summary.settings-button').click();
 
-  // Bathroom option should come first.
+  // Bathroom option should come first (then Azulejo, then Aurora).
   const first = page.locator("[data-testid='skin-bathroom']");
-  const second = page.locator("[data-testid='skin-default']");
+  const second = page.locator("[data-testid='skin-azulejo']");
+  const third = page.locator("[data-testid='skin-default']");
   await expect(first).toBeVisible();
   await expect(second).toBeVisible();
+  await expect(third).toBeVisible();
 
   const orderOk = await page.evaluate(() => {
     const a = document.querySelector("[data-testid='skin-bathroom']");
-    const b = document.querySelector("[data-testid='skin-default']");
-    if (!a || !b) return false;
-    const pos = a.compareDocumentPosition(b);
-    return Boolean(pos & Node.DOCUMENT_POSITION_FOLLOWING);
+    const b = document.querySelector("[data-testid='skin-azulejo']");
+    const c = document.querySelector("[data-testid='skin-default']");
+    if (!a || !b || !c) return false;
+
+    const ab = a.compareDocumentPosition(b);
+    const bc = b.compareDocumentPosition(c);
+    return Boolean(ab & Node.DOCUMENT_POSITION_FOLLOWING) && Boolean(bc & Node.DOCUMENT_POSITION_FOLLOWING);
   });
   expect(orderOk).toBe(true);
 
@@ -72,13 +77,22 @@ test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
   });
   expect(fits.ok).toBe(true);
 
-  // Switch to default
+  // Switch to Aurora
   await page.getByTestId('skin-default').click();
   await expect(page.locator('html')).not.toHaveAttribute('data-skin', 'bathroom');
 
   // Reload and ensure it sticks
   await page.reload();
   await expect(page.locator('html')).not.toHaveAttribute('data-skin', 'bathroom');
+
+  // Open settings and switch to Azulejo
+  await page.locator('summary.settings-button').click();
+  await page.getByTestId('skin-azulejo').click();
+  await expect(page.locator('html')).toHaveAttribute('data-skin', 'azulejo');
+
+  // Reload and ensure it sticks
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-skin', 'azulejo');
 
   // Switch back to bathroom
   await page.locator('summary.settings-button').click();

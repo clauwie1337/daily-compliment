@@ -35,9 +35,12 @@ const base = import.meta.env.BASE_URL;
           // Default for new users: bathroom wisdom.
           // Persisted values:
           // - 'bathroom' => bathroom wisdom
-          // - 'default'  => our normal look
+          // - 'azulejo'  => Portuguese tile look
+          // - 'default'  => Aurora
           if (skinSaved === 'default') {
             document.documentElement.removeAttribute('data-skin');
+          } else if (skinSaved === 'azulejo') {
+            document.documentElement.setAttribute('data-skin', 'azulejo');
           } else {
             // 'bathroom' or null/unknown => bathroom.
             document.documentElement.setAttribute('data-skin', 'bathroom');

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  type Skin = 'default' | 'bathroom';
+  type Skin = 'default' | 'bathroom' | 'azulejo';
 
   const STORAGE_KEY = 'dc:skin';
 
@@ -19,14 +19,16 @@
 
     const root = document.documentElement;
     if (next === 'default') root.removeAttribute('data-skin');
-    else root.setAttribute('data-skin', 'bathroom');
+    else root.setAttribute('data-skin', next);
   }
 
   onMount(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       // Default for new users is bathroom.
-      skin = saved === 'default' ? 'default' : 'bathroom';
+      if (saved === 'default') skin = 'default';
+      else if (saved === 'azulejo') skin = 'azulejo';
+      else skin = 'bathroom';
     } catch {
       skin = 'bathroom';
     }
@@ -48,6 +50,29 @@
       <path
         fill="currentColor"
         d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h14V5H5Zm2 2h4v4H7V7Zm6 0h4v4h-4V7ZM7 13h4v4H7v-4Zm6 0h4v4h-4v-4Z"
+      />
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    class:selected={skin === 'azulejo'}
+    role="radio"
+    aria-checked={skin === 'azulejo'}
+    aria-label="Azulejo style"
+    title="Azulejo"
+    data-testid="skin-azulejo"
+    on:click={() => apply('azulejo')}
+  >
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h14V5H5Zm2.5 2.5h3v3h-3v-3Zm6 0h3v3h-3v-3Zm-6 6h3v3h-3v-3Zm6 0h3v3h-3v-3Z"
+      />
+      <path
+        fill="currentColor"
+        opacity="0.55"
+        d="M12 6.2l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8Z"
       />
     </svg>
   </button>
