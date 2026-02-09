@@ -65,15 +65,21 @@
     on:click={() => apply('azulejo')}
   >
     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <!-- Tile frame + small rosette (distinct from the Bathroom grid icon). -->
       <path
         fill="currentColor"
-        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h14V5H5Zm2.5 2.5h3v3h-3v-3Zm6 0h3v3h-3v-3Zm-6 6h3v3h-3v-3Zm6 0h3v3h-3v-3Z"
+        d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h14V5H5Z"
       />
+      <circle cx="12" cy="12" r="3.75" fill="currentColor" opacity="0.28" />
       <path
         fill="currentColor"
-        opacity="0.55"
-        d="M12 6.2l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8Z"
+        opacity="0.85"
+        d="M12 7.4l1.2 2.6 2.6 1.2-2.6 1.2-1.2 2.6-1.2-2.6-2.6-1.2 2.6-1.2L12 7.4Z"
       />
+      <circle cx="8" cy="8" r="1" fill="currentColor" opacity="0.35" />
+      <circle cx="16" cy="8" r="1" fill="currentColor" opacity="0.35" />
+      <circle cx="8" cy="16" r="1" fill="currentColor" opacity="0.35" />
+      <circle cx="16" cy="16" r="1" fill="currentColor" opacity="0.35" />
     </svg>
   </button>
 

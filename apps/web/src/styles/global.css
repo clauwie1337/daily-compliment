@@ -160,13 +160,15 @@ body::after {
   --dc-muted: rgba(31, 41, 55, 0.75);
   --dc-border: rgba(31, 41, 55, 0.14);
 
-  /* Accents (cobalt, teal, terracotta, saffron) */
-  --dc-accent-1: #1d4ed8;
-  --dc-accent-2: #0f766e;
-  --dc-accent-3: #c2410c;
+  /* Accents (cobalt, teal, ochre + a touch of terracotta) */
+  --dc-accent-1: #1d4ed8; /* cobalt */
+  --dc-accent-2: #0f766e; /* teal */
+  --dc-accent-3: #b45309; /* ochre */
+
+  --dc-azulejo-terracotta: #c2410c;
 
   /* Deterministic ornamental tile panel for the card */
-  --dc-azulejo-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20400%20250%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2750%25%27%20cy%3D%2750%25%27%20r%3D%2765%25%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23fffaf2%27%2F%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23ffffff%27%2F%3E%3C%2FradialGradient%3E%3Cstyle%3E.ink%7Bfill%3Anone%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%7D.b%7Bstroke%3A%231d4ed8%3Bstroke-width%3A6%3Bopacity%3A.9%7D.t%7Bstroke%3A%230f766e%3Bstroke-width%3A6%3Bopacity%3A.78%7D.o%7Bstroke%3A%23c2410c%3Bstroke-width%3A6%3Bopacity%3A.72%7D.y%7Bstroke%3A%23f59e0b%3Bstroke-width%3A6%3Bopacity%3A.55%7D.thin%7Bstroke%3A%231f3b82%3Bstroke-width%3A3%3Bopacity%3A.42%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Crect%20width%3D%27400%27%20height%3D%27250%27%20fill%3D%27url(%23g)%27%2F%3E%3Crect%20x%3D%2714%27%20y%3D%2714%27%20width%3D%27372%27%20height%3D%27222%27%20rx%3D%2720%27%20fill%3D%27none%27%20stroke%3D%27%231d4ed8%27%20stroke-width%3D%276%27%20opacity%3D%27.25%27%2F%3E%3Crect%20x%3D%2724%27%20y%3D%2724%27%20width%3D%27352%27%20height%3D%27202%27%20rx%3D%2716%27%20fill%3D%27none%27%20stroke%3D%27%230f766e%27%20stroke-width%3D%274%27%20opacity%3D%27.22%27%2F%3E%3Cpath%20class%3D%27ink%20b%27%20d%3D%27M56%2036c26%2020%2052%2020%2078%200%27%2F%3E%3Cpath%20class%3D%27ink%20t%27%20d%3D%27M56%20214c26-20%2052-20%2078%200%27%2F%3E%3Cpath%20class%3D%27ink%20o%27%20d%3D%27M344%2036c-26%2020-52%2020-78%200%27%2F%3E%3Cpath%20class%3D%27ink%20t%27%20d%3D%27M344%20214c-26-20-52-20-78%200%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%27125%27%20r%3D%2760%27%20fill%3D%27none%27%20stroke%3D%27%231d4ed8%27%20stroke-width%3D%276%27%20opacity%3D%27.22%27%2F%3E%3Cpath%20class%3D%27ink%20thin%27%20d%3D%27M200%2068l10%2026%2026%2010-26%2010-10%2026-10-26-26-10%2026-10z%27%2F%3E%3Cpath%20class%3D%27ink%20y%27%20d%3D%27M200%2082l6%2016%2016%206-16%206-6%2016-6-16-16-6%2016-6z%27%2F%3E%3Cpath%20class%3D%27ink%20t%27%20d%3D%27M92%20125c22-36%2046-36%2068%200c-22%2036-46%2036-68%200z%27%20opacity%3D%27.35%27%2F%3E%3Cpath%20class%3D%27ink%20o%27%20d%3D%27M308%20125c-22%2036-46%2036-68%200c22-36%2046-36%2068%200z%27%20opacity%3D%27.35%27%2F%3E%3C%2Fsvg%3E");
+  --dc-azulejo-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20240%20240'%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D'bg'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%20%3Cstop%20offset%3D'0'%20stop-color%3D'%23fff7ed'%2F%3E%20%3Cstop%20offset%3D'1'%20stop-color%3D'%23ffffff'%2F%3E%20%3C%2FlinearGradient%3E%20%3Cstyle%3E%20.ink%7Bfill%3Anone%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%7D%20.c%7Bstroke%3A%231d4ed8%7D%20.t%7Bstroke%3A%230f766e%7D%20.o%7Bstroke%3A%23b45309%7D%20.r%7Bstroke%3A%23c2410c%7D%20.bold%7Bstroke-width%3A6%3Bopacity%3A.36%7D%20.mid%7Bstroke-width%3A4%3Bopacity%3A.34%7D%20.thin%7Bstroke-width%3A2.5%3Bopacity%3A.30%7D%20.fo%7Bfill%3A%23b45309%3Bopacity%3A.10%7D%20.fr%7Bfill%3A%23c2410c%3Bopacity%3A.09%7D%20%3C%2Fstyle%3E%20%3Cmask%20id%3D'outside'%3E%20%3Crect%20width%3D'240'%20height%3D'240'%20fill%3D'%23fff'%2F%3E%20%3Ccircle%20cx%3D'120'%20cy%3D'120'%20r%3D'74'%20fill%3D'%23000'%2F%3E%20%3C%2Fmask%3E%20%3Cpattern%20id%3D'z'%20width%3D'60'%20height%3D'60'%20patternUnits%3D'userSpaceOnUse'%3E%20%3Cpath%20class%3D'ink%20thin%20c'%20d%3D'M30%200L60%2030L30%2060L0%2030Z'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20t'%20d%3D'M30%2012L48%2030L30%2048L12%2030Z'%20opacity%3D'.42'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20o'%20d%3D'M30%200V60M0%2030H60'%20opacity%3D'.22'%2F%3E%20%3C%2Fpattern%3E%20%3C%2Fdefs%3E%20%3Crect%20width%3D'240'%20height%3D'240'%20fill%3D'url(%23bg)'%2F%3E%20%3Crect%20x%3D'10'%20y%3D'10'%20width%3D'220'%20height%3D'220'%20rx%3D'22'%20fill%3D'none'%20stroke%3D'%231d4ed8'%20stroke-width%3D'6'%20opacity%3D'.16'%2F%3E%20%3Crect%20x%3D'20'%20y%3D'20'%20width%3D'200'%20height%3D'200'%20rx%3D'18'%20fill%3D'none'%20stroke%3D'%230f766e'%20stroke-width%3D'4'%20opacity%3D'.14'%2F%3E%20%3Cg%20mask%3D'url(%23outside)'%3E%20%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'196'%20height%3D'196'%20rx%3D'16'%20fill%3D'url(%23z)'%20opacity%3D'.62'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20c'%20d%3D'M120%2022L218%20120L120%20218L22%20120Z'%20opacity%3D'.20'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20t'%20d%3D'M120%2034L206%20120L120%20206L34%20120Z'%20opacity%3D'.18'%2F%3E%20%3Cg%20transform%3D'translate(120%20120)'%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20class%3D'ink%20bold%20c'%2F%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20transform%3D'rotate(45)'%20class%3D'ink%20bold%20t'%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D'ink%20mid%20o'%20opacity%3D'.18'%3E%20%3Cpath%20d%3D'M60%2022L22%2060'%2F%3E%3Cpath%20d%3D'M180%2022L218%2060'%2F%3E%3Cpath%20d%3D'M60%20218L22%20180'%2F%3E%3Cpath%20d%3D'M180%20218L218%20180'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.26'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.22'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.26'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.22'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.26'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.22'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.26'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.22'%2F%3E%20%3C%2Fg%3E%20%3Cpath%20class%3D'fo'%20d%3D'M120%2018l12%2012-12%2012-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M120%20222l12-12-12-12-12%2012z'%2F%3E%20%3Cpath%20class%3D'fo'%20d%3D'M18%20120l12%2012%2012-12-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M222%20120l-12%2012-12-12%2012-12z'%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 
   --pico-background-color: var(--dc-bg);
   --pico-color: var(--dc-text);
@@ -179,10 +181,19 @@ body::after {
   background:
     radial-gradient(900px 520px at 16% 0%, rgba(29, 78, 216, 0.16), transparent 60%),
     radial-gradient(820px 520px at 84% 8%, rgba(15, 118, 110, 0.14), transparent 62%),
-    radial-gradient(760px 520px at 50% 42%, rgba(194, 65, 12, 0.10), transparent 58%),
+    radial-gradient(760px 520px at 52% 40%, rgba(180, 83, 9, 0.10), transparent 58%),
+    radial-gradient(620px 420px at 42% 78%, rgba(194, 65, 12, 0.06), transparent 62%),
     repeating-linear-gradient(0deg, rgba(31, 41, 55, 0.08) 0 1px, transparent 1px 56px),
     repeating-linear-gradient(90deg, rgba(31, 41, 55, 0.08) 0 1px, transparent 1px 56px),
     var(--dc-bg);
+}
+
+/* Disable the default animated blob background for this skin (tiles should read clean). */
+:root[data-skin='azulejo'] body::before {
+  content: none;
+  animation: none;
+  background: none;
+  opacity: 0;
 }
 
 :root[data-skin='azulejo'] body::after {
@@ -190,12 +201,48 @@ body::after {
 }
 
 :root[data-skin='azulejo'] article.compliment-card {
-  border-color: rgba(31, 41, 55, 0.14);
+  border-radius: 18px;
+  border: 2px solid rgba(29, 78, 216, 0.20);
+
   background-image:
     var(--dc-azulejo-art),
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.92));
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.10),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-skin='azulejo'] article.compliment-card::before {
+  /* Glossy ceramic highlight */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(260px 220px at 22% 18%, rgba(255, 255, 255, 0.84), transparent 60%),
+    radial-gradient(420px 340px at 78% 85%, rgba(15, 118, 110, 0.14), transparent 58%);
+
+  opacity: 0.55;
+}
+
+:root[data-skin='azulejo'] article.compliment-card::after {
+  /* Inner bevel so it reads as a physical tile (override default confetti overlay). */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(29, 78, 216, 0.10),
+    inset 0 0 0 10px rgba(255, 255, 255, 0.45);
+
+  opacity: 1;
 }
 
 :root[data-skin='azulejo'] article.compliment-card blockquote {
@@ -203,6 +250,21 @@ body::after {
   border-radius: 18px;
   padding: 1.1rem 1.25rem;
   /* no backdrop-filter (keeps rendering deterministic across platforms) */
+}
+
+:root[data-skin='azulejo'] button.primary {
+  /* Avoid the default purple-ish glow; keep it in the Azulejo palette. */
+  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.18);
+}
+
+:root[data-skin='azulejo'][data-theme='dark'] button.primary {
+  box-shadow: 0 10px 24px rgba(96, 165, 250, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-skin='azulejo']:not([data-theme]) button.primary {
+    box-shadow: 0 10px 24px rgba(96, 165, 250, 0.14);
+  }
 }
 
 /* Azulejo + dark mode */
@@ -214,9 +276,13 @@ body::after {
   --dc-muted: rgba(226, 232, 240, 0.78);
   --dc-border: rgba(226, 232, 240, 0.16);
 
-  --dc-accent-1: #60a5fa;
-  --dc-accent-2: #34d399;
-  --dc-accent-3: #fb923c;
+  --dc-accent-1: #60a5fa; /* cobalt */
+  --dc-accent-2: #34d399; /* teal */
+  --dc-accent-3: #fbbf24; /* ochre */
+
+  --dc-azulejo-terracotta: #fb923c;
+
+  --dc-azulejo-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20240%20240'%3E%20%3Cdefs%3E%20%3Cstyle%3E%20.ink%7Bfill%3Anone%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%7D%20.c%7Bstroke%3A%2393c5fd%7D%20.t%7Bstroke%3A%232dd4bf%7D%20.o%7Bstroke%3A%23fbbf24%7D%20.r%7Bstroke%3A%23fb923c%7D%20.bold%7Bstroke-width%3A6%3Bopacity%3A.30%7D%20.mid%7Bstroke-width%3A4%3Bopacity%3A.28%7D%20.thin%7Bstroke-width%3A2.5%3Bopacity%3A.22%7D%20.fo%7Bfill%3A%23fbbf24%3Bopacity%3A.10%7D%20.fr%7Bfill%3A%23fb923c%3Bopacity%3A.09%7D%20%3C%2Fstyle%3E%20%3Cmask%20id%3D'outside'%3E%20%3Crect%20width%3D'240'%20height%3D'240'%20fill%3D'%23fff'%2F%3E%20%3Ccircle%20cx%3D'120'%20cy%3D'120'%20r%3D'74'%20fill%3D'%23000'%2F%3E%20%3C%2Fmask%3E%20%3Cpattern%20id%3D'z'%20width%3D'60'%20height%3D'60'%20patternUnits%3D'userSpaceOnUse'%3E%20%3Cpath%20class%3D'ink%20thin%20c'%20d%3D'M30%200L60%2030L30%2060L0%2030Z'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20t'%20d%3D'M30%2012L48%2030L30%2048L12%2030Z'%20opacity%3D'.45'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20o'%20d%3D'M30%200V60M0%2030H60'%20opacity%3D'.18'%2F%3E%20%3C%2Fpattern%3E%20%3C%2Fdefs%3E%20%3Crect%20x%3D'10'%20y%3D'10'%20width%3D'220'%20height%3D'220'%20rx%3D'22'%20fill%3D'none'%20stroke%3D'%2393c5fd'%20stroke-width%3D'6'%20opacity%3D'.14'%2F%3E%20%3Crect%20x%3D'20'%20y%3D'20'%20width%3D'200'%20height%3D'200'%20rx%3D'18'%20fill%3D'none'%20stroke%3D'%232dd4bf'%20stroke-width%3D'4'%20opacity%3D'.12'%2F%3E%20%3Cg%20mask%3D'url(%23outside)'%3E%20%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'196'%20height%3D'196'%20rx%3D'16'%20fill%3D'url(%23z)'%20opacity%3D'.46'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20c'%20d%3D'M120%2022L218%20120L120%20218L22%20120Z'%20opacity%3D'.18'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20t'%20d%3D'M120%2034L206%20120L120%20206L34%20120Z'%20opacity%3D'.16'%2F%3E%20%3Cg%20transform%3D'translate(120%20120)'%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20class%3D'ink%20bold%20c'%2F%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20transform%3D'rotate(45)'%20class%3D'ink%20bold%20t'%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D'ink%20mid%20o'%20opacity%3D'.16'%3E%20%3Cpath%20d%3D'M60%2022L22%2060'%2F%3E%3Cpath%20d%3D'M180%2022L218%2060'%2F%3E%3Cpath%20d%3D'M60%20218L22%20180'%2F%3E%3Cpath%20d%3D'M180%20218L218%20180'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cpath%20class%3D'fo'%20d%3D'M120%2018l12%2012-12%2012-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M120%20222l12-12-12-12-12%2012z'%2F%3E%20%3Cpath%20class%3D'fo'%20d%3D'M18%20120l12%2012%2012-12-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M222%20120l-12%2012-12-12%2012-12z'%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 
   --pico-background-color: var(--dc-bg);
   --pico-color: var(--dc-text);
@@ -230,7 +296,8 @@ body::after {
   background:
     radial-gradient(900px 520px at 16% 0%, rgba(96, 165, 250, 0.16), transparent 60%),
     radial-gradient(820px 520px at 84% 8%, rgba(52, 211, 153, 0.14), transparent 62%),
-    radial-gradient(760px 520px at 50% 42%, rgba(251, 146, 60, 0.10), transparent 58%),
+    radial-gradient(760px 520px at 52% 40%, rgba(251, 191, 36, 0.10), transparent 58%),
+    radial-gradient(620px 420px at 42% 78%, rgba(251, 146, 60, 0.06), transparent 62%),
     repeating-linear-gradient(0deg, rgba(226, 232, 240, 0.08) 0 1px, transparent 1px 56px),
     repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.08) 0 1px, transparent 1px 56px),
     linear-gradient(180deg, rgba(2, 6, 23, 0.90), rgba(5, 7, 12, 0.96)),
@@ -238,10 +305,23 @@ body::after {
 }
 
 :root[data-skin='azulejo'][data-theme='dark'] article.compliment-card {
-  border-color: rgba(226, 232, 240, 0.18);
+  border-color: rgba(96, 165, 250, 0.20);
   background-image:
     var(--dc-azulejo-art),
     linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.86));
+}
+
+:root[data-skin='azulejo'][data-theme='dark'] article.compliment-card::before {
+  background:
+    radial-gradient(260px 220px at 22% 18%, rgba(255, 255, 255, 0.10), transparent 60%),
+    radial-gradient(420px 340px at 78% 85%, rgba(52, 211, 153, 0.18), transparent 58%);
+  opacity: 0.95;
+}
+
+:root[data-skin='azulejo'][data-theme='dark'] article.compliment-card::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 165, 250, 0.14),
+    inset 0 0 0 10px rgba(2, 6, 23, 0.55);
 }
 
 :root[data-skin='azulejo'][data-theme='dark'] article.compliment-card blockquote {
@@ -257,9 +337,13 @@ body::after {
     --dc-muted: rgba(226, 232, 240, 0.78);
     --dc-border: rgba(226, 232, 240, 0.16);
 
-    --dc-accent-1: #60a5fa;
-    --dc-accent-2: #34d399;
-    --dc-accent-3: #fb923c;
+    --dc-accent-1: #60a5fa; /* cobalt */
+    --dc-accent-2: #34d399; /* teal */
+    --dc-accent-3: #fbbf24; /* ochre */
+
+    --dc-azulejo-terracotta: #fb923c;
+
+    --dc-azulejo-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20240%20240'%3E%20%3Cdefs%3E%20%3Cstyle%3E%20.ink%7Bfill%3Anone%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%7D%20.c%7Bstroke%3A%2393c5fd%7D%20.t%7Bstroke%3A%232dd4bf%7D%20.o%7Bstroke%3A%23fbbf24%7D%20.r%7Bstroke%3A%23fb923c%7D%20.bold%7Bstroke-width%3A6%3Bopacity%3A.30%7D%20.mid%7Bstroke-width%3A4%3Bopacity%3A.28%7D%20.thin%7Bstroke-width%3A2.5%3Bopacity%3A.22%7D%20.fo%7Bfill%3A%23fbbf24%3Bopacity%3A.10%7D%20.fr%7Bfill%3A%23fb923c%3Bopacity%3A.09%7D%20%3C%2Fstyle%3E%20%3Cmask%20id%3D'outside'%3E%20%3Crect%20width%3D'240'%20height%3D'240'%20fill%3D'%23fff'%2F%3E%20%3Ccircle%20cx%3D'120'%20cy%3D'120'%20r%3D'74'%20fill%3D'%23000'%2F%3E%20%3C%2Fmask%3E%20%3Cpattern%20id%3D'z'%20width%3D'60'%20height%3D'60'%20patternUnits%3D'userSpaceOnUse'%3E%20%3Cpath%20class%3D'ink%20thin%20c'%20d%3D'M30%200L60%2030L30%2060L0%2030Z'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20t'%20d%3D'M30%2012L48%2030L30%2048L12%2030Z'%20opacity%3D'.45'%2F%3E%20%3Cpath%20class%3D'ink%20thin%20o'%20d%3D'M30%200V60M0%2030H60'%20opacity%3D'.18'%2F%3E%20%3C%2Fpattern%3E%20%3C%2Fdefs%3E%20%3Crect%20x%3D'10'%20y%3D'10'%20width%3D'220'%20height%3D'220'%20rx%3D'22'%20fill%3D'none'%20stroke%3D'%2393c5fd'%20stroke-width%3D'6'%20opacity%3D'.14'%2F%3E%20%3Crect%20x%3D'20'%20y%3D'20'%20width%3D'200'%20height%3D'200'%20rx%3D'18'%20fill%3D'none'%20stroke%3D'%232dd4bf'%20stroke-width%3D'4'%20opacity%3D'.12'%2F%3E%20%3Cg%20mask%3D'url(%23outside)'%3E%20%3Crect%20x%3D'22'%20y%3D'22'%20width%3D'196'%20height%3D'196'%20rx%3D'16'%20fill%3D'url(%23z)'%20opacity%3D'.46'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20c'%20d%3D'M120%2022L218%20120L120%20218L22%20120Z'%20opacity%3D'.18'%2F%3E%20%3Cpath%20class%3D'ink%20mid%20t'%20d%3D'M120%2034L206%20120L120%20206L34%20120Z'%20opacity%3D'.16'%2F%3E%20%3Cg%20transform%3D'translate(120%20120)'%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20class%3D'ink%20bold%20c'%2F%3E%20%3Crect%20x%3D'-62'%20y%3D'-62'%20width%3D'124'%20height%3D'124'%20transform%3D'rotate(45)'%20class%3D'ink%20bold%20t'%2F%3E%20%3C%2Fg%3E%20%3Cg%20class%3D'ink%20mid%20o'%20opacity%3D'.16'%3E%20%3Cpath%20d%3D'M60%2022L22%2060'%2F%3E%3Cpath%20d%3D'M180%2022L218%2060'%2F%3E%3Cpath%20d%3D'M60%20218L22%20180'%2F%3E%3Cpath%20d%3D'M180%20218L218%20180'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%2044)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(44%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cg%20transform%3D'translate(196%20196)'%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20class%3D'ink%20mid%20c'%20opacity%3D'.22'%2F%3E%20%3Crect%20x%3D'-14'%20y%3D'-14'%20width%3D'28'%20height%3D'28'%20transform%3D'rotate(45)'%20class%3D'ink%20mid%20t'%20opacity%3D'.18'%2F%3E%20%3C%2Fg%3E%20%3Cpath%20class%3D'fo'%20d%3D'M120%2018l12%2012-12%2012-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M120%20222l12-12-12-12-12%2012z'%2F%3E%20%3Cpath%20class%3D'fo'%20d%3D'M18%20120l12%2012%2012-12-12-12z'%2F%3E%20%3Cpath%20class%3D'fr'%20d%3D'M222%20120l-12%2012-12-12%2012-12z'%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
 
     --pico-background-color: var(--dc-bg);
     --pico-color: var(--dc-text);
@@ -273,7 +357,8 @@ body::after {
     background:
       radial-gradient(900px 520px at 16% 0%, rgba(96, 165, 250, 0.16), transparent 60%),
       radial-gradient(820px 520px at 84% 8%, rgba(52, 211, 153, 0.14), transparent 62%),
-      radial-gradient(760px 520px at 50% 42%, rgba(251, 146, 60, 0.10), transparent 58%),
+      radial-gradient(760px 520px at 52% 40%, rgba(251, 191, 36, 0.10), transparent 58%),
+      radial-gradient(620px 420px at 42% 78%, rgba(251, 146, 60, 0.06), transparent 62%),
       repeating-linear-gradient(0deg, rgba(226, 232, 240, 0.08) 0 1px, transparent 1px 56px),
       repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.08) 0 1px, transparent 1px 56px),
       linear-gradient(180deg, rgba(2, 6, 23, 0.90), rgba(5, 7, 12, 0.96)),
@@ -281,10 +366,23 @@ body::after {
   }
 
   :root[data-skin='azulejo']:not([data-theme]) article.compliment-card {
-    border-color: rgba(226, 232, 240, 0.18);
+    border-color: rgba(96, 165, 250, 0.20);
     background-image:
       var(--dc-azulejo-art),
       linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.86));
+  }
+
+  :root[data-skin='azulejo']:not([data-theme]) article.compliment-card::before {
+    background:
+      radial-gradient(260px 220px at 22% 18%, rgba(255, 255, 255, 0.10), transparent 60%),
+      radial-gradient(420px 340px at 78% 85%, rgba(52, 211, 153, 0.18), transparent 58%);
+    opacity: 0.95;
+  }
+
+  :root[data-skin='azulejo']:not([data-theme]) article.compliment-card::after {
+    box-shadow:
+      inset 0 0 0 1px rgba(96, 165, 250, 0.14),
+      inset 0 0 0 10px rgba(2, 6, 23, 0.55);
   }
 
   :root[data-skin='azulejo']:not([data-theme]) article.compliment-card blockquote {

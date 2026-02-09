@@ -382,6 +382,50 @@
     width: 100%;
   }
 
+  /* Azulejo: a single square tile (no stacked-card illusion). */
+  :global(:root[data-skin='azulejo']) .compliment-stack::before,
+  :global(:root[data-skin='azulejo']) .compliment-stack::after {
+    content: none;
+  }
+
+  :global(:root[data-skin='azulejo']) .compliment-stack {
+    width: min(30rem, 100%);
+  }
+
+  :global(:root[data-skin='azulejo']) article.compliment-card {
+    aspect-ratio: 1 / 1;
+    padding: 1.4rem;
+
+    display: grid;
+    place-items: center;
+  }
+
+  :global(:root[data-skin='azulejo']) article.compliment-card blockquote {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  :global(:root[data-skin='azulejo']) .actions-bar {
+    background:
+      linear-gradient(var(--dc-surface), var(--dc-surface)) padding-box,
+      linear-gradient(90deg, rgba(29, 78, 216, 0.32), rgba(15, 118, 110, 0.26), rgba(194, 65, 12, 0.22)) border-box;
+  }
+
+  :global(:root[data-skin='azulejo'][data-theme='dark']) .actions-bar {
+    background:
+      linear-gradient(rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.82)) padding-box,
+      linear-gradient(90deg, rgba(96, 165, 250, 0.28), rgba(52, 211, 153, 0.24), rgba(251, 146, 60, 0.22)) border-box;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root[data-skin='azulejo']:not([data-theme])) .actions-bar {
+      background:
+        linear-gradient(rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.82)) padding-box,
+        linear-gradient(90deg, rgba(96, 165, 250, 0.28), rgba(52, 211, 153, 0.24), rgba(251, 146, 60, 0.22)) border-box;
+    }
+  }
+
   .hero {
     display: grid;
     gap: 1.25rem;
