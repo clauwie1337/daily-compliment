@@ -11,6 +11,7 @@
   --dc-bg: #f8fafc;
   --dc-surface: #ffffff;
   --dc-text: #0f172a;
+  --dc-quote: #1e293b; /* slightly softer than dc-text for big hero quote */
   --dc-muted: #334155;
   --dc-border: rgba(15, 23, 42, 0.12);
 
@@ -37,6 +38,7 @@
   --dc-bg: #070a12;
   --dc-surface: rgba(15, 23, 42, 0.86);
   --dc-text: #f8fafc;
+  --dc-quote: #ffffff;
   --dc-muted: rgba(226, 232, 240, 0.80);
   --dc-border: rgba(226, 232, 240, 0.14);
 
@@ -57,6 +59,7 @@
     --dc-bg: #070a12;
     --dc-surface: rgba(15, 23, 42, 0.86);
     --dc-text: #f8fafc;
+    --dc-quote: #ffffff;
     --dc-muted: rgba(226, 232, 240, 0.80);
     --dc-border: rgba(226, 232, 240, 0.14);
 

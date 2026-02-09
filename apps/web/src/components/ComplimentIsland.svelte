@@ -331,7 +331,7 @@
     letter-spacing: -0.015em;
     text-align: center;
     margin: 0;
-    color: var(--dc-text);
+    color: var(--dc-quote, var(--dc-text));
   }
 
   /* Bathroom wisdom: handwritten blue ink on tile */
