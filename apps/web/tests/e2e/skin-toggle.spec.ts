@@ -1,14 +1,28 @@
 import { expect, test } from './fixtures';
 
-test('bathroom wisdom style toggles and persists', async ({ page }) => {
+test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
   await page.goto('/?dc_id=en-0003');
+
+  // New users default to bathroom wisdom.
+  await expect(page.locator('html')).toHaveAttribute('data-skin', 'bathroom');
 
   // Open settings
   await page.locator('summary.settings-button').click();
 
-  // Toggle bathroom style
-  await page.getByTestId('skin-bathroom').click();
-  await expect(page.locator('html')).toHaveAttribute('data-skin', 'bathroom');
+  // Bathroom option should come first.
+  const first = page.locator("[data-testid='skin-bathroom']");
+  const second = page.locator("[data-testid='skin-default']");
+  await expect(first).toBeVisible();
+  await expect(second).toBeVisible();
+
+  const orderOk = await page.evaluate(() => {
+    const a = document.querySelector("[data-testid='skin-bathroom']");
+    const b = document.querySelector("[data-testid='skin-default']");
+    if (!a || !b) return false;
+    const pos = a.compareDocumentPosition(b);
+    return Boolean(pos & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+  expect(orderOk).toBe(true);
 
   // Tile should be roughly square in this style
   const box = await page.getByTestId('compliment-card').boundingBox();
@@ -19,7 +33,7 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
     expect(ratio).toBeLessThan(1.08);
   }
 
-  // Text should fit within the central circle (diagonal constraint)
+  // Text should fit within the central circle (diagonal + centered)
   await page.waitForTimeout(50); // allow rAF fitting to run
   const fits = await page.evaluate(() => {
     const root = document.documentElement;
@@ -29,7 +43,7 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
 
     const ratioRaw = getComputedStyle(root).getPropertyValue('--dc-bathroom-circle-diameter').trim();
     const ratio = Number.parseFloat(ratioRaw);
-    const dRatio = Number.isFinite(ratio) && ratio > 0 && ratio <= 1 ? ratio : 0.76;
+    const dRatio = Number.isFinite(ratio) && ratio > 0 && ratio <= 1 ? ratio : 0.70;
 
     const rCard = card.getBoundingClientRect();
     const size = Math.min(rCard.width, rCard.height);
@@ -39,7 +53,6 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
 
     const rText = quote.getBoundingClientRect();
 
-    // Must be centered (otherwise it can still clip even if diagonal fits).
     const cardCx = rCard.left + rCard.width / 2;
     const cardCy = rCard.top + rCard.height / 2;
     const textCx = rText.left + rText.width / 2;
@@ -59,12 +72,16 @@ test('bathroom wisdom style toggles and persists', async ({ page }) => {
   });
   expect(fits.ok).toBe(true);
 
-  // Reload and ensure it sticks
-  await page.reload();
-  await expect(page.locator('html')).toHaveAttribute('data-skin', 'bathroom');
-
-  // Switch back to default
-  await page.locator('summary.settings-button').click();
+  // Switch to default
   await page.getByTestId('skin-default').click();
   await expect(page.locator('html')).not.toHaveAttribute('data-skin', 'bathroom');
+
+  // Reload and ensure it sticks
+  await page.reload();
+  await expect(page.locator('html')).not.toHaveAttribute('data-skin', 'bathroom');
+
+  // Switch back to bathroom
+  await page.locator('summary.settings-button').click();
+  await page.getByTestId('skin-bathroom').click();
+  await expect(page.locator('html')).toHaveAttribute('data-skin', 'bathroom');
 });

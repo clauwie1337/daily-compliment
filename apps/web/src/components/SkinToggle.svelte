@@ -5,52 +5,35 @@
 
   const STORAGE_KEY = 'dc:skin';
 
-  let skin: Skin = 'default';
+  let skin: Skin = 'bathroom';
 
   function apply(next: Skin) {
     skin = next;
 
     try {
-      if (next === 'default') localStorage.removeItem(STORAGE_KEY);
-      else localStorage.setItem(STORAGE_KEY, next);
+      // Persist explicitly so the user can opt out of the new default.
+      localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // ignore
     }
 
     const root = document.documentElement;
     if (next === 'default') root.removeAttribute('data-skin');
-    else root.setAttribute('data-skin', next);
+    else root.setAttribute('data-skin', 'bathroom');
   }
 
   onMount(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      skin = saved === 'bathroom' ? 'bathroom' : 'default';
+      // Default for new users is bathroom.
+      skin = saved === 'default' ? 'default' : 'bathroom';
     } catch {
-      skin = 'default';
+      skin = 'bathroom';
     }
   });
 </script>
 
 <div class="skin" role="radiogroup" aria-label="Style">
-  <button
-    type="button"
-    class:selected={skin === 'default'}
-    role="radio"
-    aria-checked={skin === 'default'}
-    aria-label="Default style"
-    title="Default"
-    data-testid="skin-default"
-    on:click={() => apply('default')}
-  >
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-      <path
-        fill="currentColor"
-        d="M12 2l1.6 4.7L18 8.3l-4.4 1.6L12 14l-1.6-4.1L6 8.3l4.4-1.6L12 2Zm7 9l.9 2.6L22 14l-2.1.4L19 17l-.9-2.6L16 14l2.1-.4L19 11ZM5 12l1.2 3.4L9 16l-2.8.6L5 20l-1.2-3.4L1 16l2.8-.6L5 12Z"
-      />
-    </svg>
-  </button>
-
   <button
     type="button"
     class:selected={skin === 'bathroom'}
@@ -65,6 +48,24 @@
       <path
         fill="currentColor"
         d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v14h14V5H5Zm2 2h4v4H7V7Zm6 0h4v4h-4V7ZM7 13h4v4H7v-4Zm6 0h4v4h-4v-4Z"
+      />
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    class:selected={skin === 'default'}
+    role="radio"
+    aria-checked={skin === 'default'}
+    aria-label="Default style"
+    title="Default"
+    data-testid="skin-default"
+    on:click={() => apply('default')}
+  >
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M12 2l1.6 4.7L18 8.3l-4.4 1.6L12 14l-1.6-4.1L6 8.3l4.4-1.6L12 2Zm7 9l.9 2.6L22 14l-2.1.4L19 17l-.9-2.6L16 14l2.1-.4L19 11ZM5 12l1.2 3.4L9 16l-2.8.6L5 20l-1.2-3.4L1 16l2.8-.6L5 12Z"
       />
     </svg>
   </button>
