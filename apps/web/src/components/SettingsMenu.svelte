@@ -72,6 +72,10 @@
     position: relative;
     display: inline-block;
     z-index: 10;
+
+    /* Prevent any framework default margins/padding from causing layout shift when opening. */
+    margin: 0;
+    padding: 0;
   }
 
   details.settings[open] {
@@ -81,6 +85,12 @@
   summary.settings-button {
     list-style: none;
     cursor: pointer;
+
+    /* Ensure opening/closing doesn't change box metrics */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 
     width: 2.5rem;
     height: 2.5rem;
@@ -93,6 +103,11 @@
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
     color: var(--dc-muted);
+  }
+
+  details.settings[open] > summary.settings-button {
+    /* Some CSS frameworks add margin/padding to summary when open; force it stable. */
+    margin-bottom: 0 !important;
   }
 
   summary.settings-button::-webkit-details-marker {
