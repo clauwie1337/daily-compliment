@@ -53,6 +53,9 @@
       return;
     }
 
+    // Reset any previous inline shrinking so short quotes can grow back.
+    quoteEl.style.removeProperty('font-size');
+
     // Wait a tick so layout is up to date after text change.
     await tick();
 
@@ -62,7 +65,7 @@
 
     const diameterRatio = readBathroomCircleDiameterRatio();
     const diameter = size * diameterRatio;
-    const margin = Math.max(12, Math.round(size * 0.05));
+    const margin = Math.max(10, Math.round(size * 0.03));
     const maxDiagonal = Math.max(0, diameter - margin);
 
     // Start from computed font-size (but cap it so we don't accidentally start huge).
@@ -70,7 +73,7 @@
     const base = Number.parseFloat(computed.fontSize || '0');
     if (!Number.isFinite(base) || base <= 0) return;
 
-    const startPx = Math.min(base, 44);
+    const startPx = Math.min(base, 56);
     const minPx = 14;
 
     let px = startPx;

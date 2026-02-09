@@ -48,7 +48,7 @@ test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
     const rCard = card.getBoundingClientRect();
     const size = Math.min(rCard.width, rCard.height);
     const diameter = size * dRatio;
-    const margin = Math.max(12, Math.round(size * 0.05));
+    const margin = Math.max(10, Math.round(size * 0.03));
     const maxDiagonal = Math.max(0, diameter - margin);
 
     const rText = quote.getBoundingClientRect();
