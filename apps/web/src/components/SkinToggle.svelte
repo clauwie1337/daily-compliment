@@ -57,8 +57,8 @@
     class:selected={skin === 'default'}
     role="radio"
     aria-checked={skin === 'default'}
-    aria-label="Default style"
-    title="Default"
+    aria-label="Aurora style"
+    title="Aurora"
     data-testid="skin-default"
     on:click={() => apply('default')}
   >
