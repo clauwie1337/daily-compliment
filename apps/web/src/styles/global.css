@@ -156,7 +156,7 @@ body::after {
   --dc-bg: #fff7ed; /* warm porcelain */
   --dc-surface: #ffffff;
   --dc-text: #1f2937; /* softer than near-black */
-  --dc-quote: #243447;
+  --dc-quote: #1d4ed8; /* cobalt ink (so it doesn’t read as harsh black) */
   --dc-muted: rgba(31, 41, 55, 0.75);
   --dc-border: rgba(31, 41, 55, 0.14);
 
