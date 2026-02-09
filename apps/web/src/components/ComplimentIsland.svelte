@@ -20,35 +20,36 @@
   let quoteEl: HTMLParagraphElement | null = null;
   let cardEl: HTMLElement | null = null;
 
-  function isBathroomSkin(): boolean {
+  function isCircleFitSkin(): boolean {
     try {
-      return document.documentElement.getAttribute('data-skin') === 'bathroom';
+      const skin = document.documentElement.getAttribute('data-skin');
+      return skin === 'bathroom' || skin === 'azulejo';
     } catch {
       return false;
     }
   }
 
-  function readBathroomCircleDiameterRatio(): number {
+  function readSafeCircleDiameterRatio(): number {
     try {
       const raw = getComputedStyle(document.documentElement)
-        .getPropertyValue('--dc-bathroom-circle-diameter')
+        .getPropertyValue('--dc-safe-circle-diameter')
         .trim();
       const n = Number.parseFloat(raw);
-      return Number.isFinite(n) && n > 0 && n <= 1 ? n : 0.76;
+      return Number.isFinite(n) && n > 0 && n <= 1 ? n : 0.7;
     } catch {
-      return 0.76;
+      return 0.7;
     }
   }
 
   let fitSeq = 0;
 
-  async function fitBathroomText() {
+  async function fitCircleText() {
     if (!quoteEl || !cardEl) return;
 
-    const bathroom = isBathroomSkin();
+    const enabled = isCircleFitSkin();
 
-    // If not in bathroom skin, ensure we don't keep an inline override.
-    if (!bathroom) {
+    // If not in a circle-fit skin, ensure we don't keep an inline override.
+    if (!enabled) {
       quoteEl.style.removeProperty('font-size');
       return;
     }
@@ -63,7 +64,7 @@
     const size = Math.min(card.width, card.height);
     if (!Number.isFinite(size) || size <= 0) return;
 
-    const diameterRatio = readBathroomCircleDiameterRatio();
+    const diameterRatio = readSafeCircleDiameterRatio();
     const diameter = size * diameterRatio;
     const margin = Math.max(10, Math.round(size * 0.03));
     const maxDiagonal = Math.max(0, diameter - margin);
@@ -94,7 +95,7 @@
     quoteEl.style.fontSize = `${minPx}px`;
   }
 
-  function queueFitBathroomText(_dep?: unknown) {
+  function queueFitCircleText(_dep?: unknown) {
     void _dep;
 
     // SSR guard (Astro builds render the island on the server too).
@@ -105,7 +106,7 @@
     // Use rAF so we measure after layout/styles settle.
     requestAnimationFrame(async () => {
       if (seq !== fitSeq) return;
-      await fitBathroomText();
+      await fitCircleText();
     });
   }
 
@@ -276,18 +277,18 @@
 
   import { onMount, onDestroy, tick } from 'svelte';
 
-  $: queueFitBathroomText(text);
+  $: queueFitCircleText(text);
 
   let skinObserver: MutationObserver | null = null;
-  const onResize = () => queueFitBathroomText();
+  const onResize = () => queueFitCircleText();
 
   onMount(() => {
     pickInitial();
-    queueFitBathroomText();
+    queueFitCircleText();
 
-    // Re-fit when the bathroom skin is toggled from the settings menu.
+    // Re-fit when a circle-fit skin (bathroom/azulejo) is toggled from the settings menu.
     try {
-      skinObserver = new MutationObserver(() => queueFitBathroomText());
+      skinObserver = new MutationObserver(() => queueFitCircleText());
       skinObserver.observe(document.documentElement, {
         attributes: true,
         attributeFilter: ['data-skin'],
@@ -382,6 +383,25 @@
     width: 100%;
   }
 
+  /* Azulejo: crisp “ink” text on ceramic tile */
+  :global(:root[data-skin='azulejo']) .quote {
+    /* Keep the measured box tight + centered for the circle-fit algorithm */
+    display: inline-block;
+    max-width: 72%;
+    margin-inline: auto;
+    text-align: center;
+    text-wrap: balance;
+
+    /* Base size (JS may scale down further to fit the circle) */
+    font-size: clamp(1.4rem, 3.1vw, 2.25rem);
+    line-height: 1.18;
+  }
+
+  :global(:root[data-skin='azulejo']) article.compliment-card blockquote {
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
 
   .hero {
     display: grid;
