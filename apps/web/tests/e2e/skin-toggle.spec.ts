@@ -1,4 +1,5 @@
 import { expect, test } from './fixtures';
+import { waitForFitComplete } from './helpers/waitForFitComplete';
 
 test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
   await page.goto('/?dc_id=en-0003');
@@ -39,7 +40,7 @@ test('bathroom wisdom is the default, but can be toggled', async ({ page }) => {
   }
 
   // Text should fit within the central circle (diagonal + centered)
-  await page.waitForTimeout(50); // allow rAF fitting to run
+  await waitForFitComplete(page);
   const fits = await page.evaluate(() => {
     const root = document.documentElement;
     const quote = document.querySelector('[data-testid="compliment"]');

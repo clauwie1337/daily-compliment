@@ -105,10 +105,25 @@
     if (typeof requestAnimationFrame !== 'function') return;
 
     const seq = ++fitSeq;
+
+    // Deterministic signal for Playwright: mark this fit as pending, then complete.
+    try {
+      document.documentElement.dataset.dcFitSeq = `p${seq}`;
+    } catch {
+      // ignore
+    }
+
     // Use rAF so we measure after layout/styles settle.
     requestAnimationFrame(async () => {
       if (seq !== fitSeq) return;
       await fitCircleText();
+
+      // Deterministic signal for Playwright: a new seq means the latest fit finished.
+      try {
+        document.documentElement.dataset.dcFitSeq = String(seq);
+      } catch {
+        // ignore
+      }
     });
   }
 

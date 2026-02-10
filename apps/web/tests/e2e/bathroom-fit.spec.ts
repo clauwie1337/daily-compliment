@@ -1,4 +1,5 @@
 import { expect, test } from './fixtures';
+import { waitForFitComplete } from './helpers/waitForFitComplete';
 
 test('bathroom text fit resets so short quotes are not stuck tiny', async ({ page }) => {
   await page.addInitScript(() => {
@@ -12,7 +13,7 @@ test('bathroom text fit resets so short quotes are not stuck tiny', async ({ pag
 
   // A longer quote that may cause shrinking.
   await page.goto('/?dc_id=en-0009');
-  await page.waitForTimeout(50);
+  await waitForFitComplete(page);
 
   const sizeLong = await page.evaluate(() => {
     const el = document.querySelector('[data-testid="compliment"]');
@@ -23,7 +24,7 @@ test('bathroom text fit resets so short quotes are not stuck tiny', async ({ pag
 
   // A shorter quote should be able to grow back.
   await page.goto('/?dc_id=en-0008');
-  await page.waitForTimeout(50);
+  await waitForFitComplete(page);
 
   const sizeShort = await page.evaluate(() => {
     const el = document.querySelector('[data-testid="compliment"]');

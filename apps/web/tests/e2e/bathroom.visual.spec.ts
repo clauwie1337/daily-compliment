@@ -1,4 +1,5 @@
 import { expect, test } from './fixtures';
+import { waitForFitComplete } from './helpers/waitForFitComplete';
 
 test('bathroom wisdom visual', async ({ page }) => {
   await page.addInitScript(() => {
@@ -15,8 +16,7 @@ test('bathroom wisdom visual', async ({ page }) => {
   const card = page.getByTestId('compliment-card');
   await expect(card).toBeVisible();
 
-  // Give the circle-fitting rAF a moment.
-  await page.waitForTimeout(50);
+  await waitForFitComplete(page);
 
   await expect(card).toHaveScreenshot('bathroom-main.png');
 });
