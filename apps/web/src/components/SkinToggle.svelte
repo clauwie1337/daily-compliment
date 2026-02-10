@@ -1,21 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { getSkin, setSkin, type SkinMode } from '../lib/storage';
 
-  type Skin = 'default' | 'bathroom' | 'azulejo';
+  let skin: SkinMode = 'bathroom';
 
-  const STORAGE_KEY = 'dc:skin';
-
-  let skin: Skin = 'bathroom';
-
-  function apply(next: Skin) {
+  function apply(next: SkinMode) {
     skin = next;
 
-    try {
-      // Persist explicitly so the user can opt out of the new default.
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // ignore
-    }
+    // Persist explicitly so the user can opt out of the new default.
+    setSkin(localStorage, next);
 
     const root = document.documentElement;
     if (next === 'default') root.removeAttribute('data-skin');
@@ -23,15 +16,7 @@
   }
 
   onMount(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      // Default for new users is bathroom.
-      if (saved === 'default') skin = 'default';
-      else if (saved === 'azulejo') skin = 'azulejo';
-      else skin = 'bathroom';
-    } catch {
-      skin = 'bathroom';
-    }
+    skin = getSkin(localStorage);
   });
 </script>
 

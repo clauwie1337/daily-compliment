@@ -1,21 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-
-  type ThemeMode = 'system' | 'light' | 'dark';
-
-  const STORAGE_KEY = 'dc:theme';
+  import { getTheme, setTheme, type ThemeMode } from '../lib/storage';
 
   let mode: ThemeMode = 'system';
 
   function apply(next: ThemeMode) {
     mode = next;
 
-    try {
-      if (next === 'system') localStorage.removeItem(STORAGE_KEY);
-      else localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // ignore
-    }
+    setTheme(localStorage, next);
 
     const root = document.documentElement;
     if (next === 'system') root.removeAttribute('data-theme');
@@ -23,16 +15,7 @@
   }
 
   onMount(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'light' || saved === 'dark') {
-        mode = saved;
-      } else {
-        mode = 'system';
-      }
-    } catch {
-      mode = 'system';
-    }
+    mode = getTheme(localStorage);
   });
 
   function onKeyDown(e: KeyboardEvent) {

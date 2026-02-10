@@ -2,16 +2,18 @@
   import { pickCompliment, toUtcDayKey, type ComplimentsData, type DayKey } from '@daily-compliment/core';
   import data from '@daily-compliment/core/data/compliments.en.json';
 
-  type LastShown = {
-    dayKey?: string;
-    id: string;
-  };
+  import {
+    clearHistory,
+    loadLastShown,
+    loadOrCreateDeviceSeed,
+    loadSeenIds,
+    migrateStorage,
+    saveLastShown,
+    saveSeenIds,
+    STORAGE_KEYS,
+  } from '../lib/storage';
 
-  const STORAGE = {
-    deviceSeed: 'dc:deviceSeed',
-    seenIds: 'dc:seenIds',
-    lastShown: 'dc:lastShown',
-  };
+  type LastShown = import('../lib/storage').LastShown;
 
   const complimentsData = data as unknown as ComplimentsData;
 
@@ -119,54 +121,7 @@
     }
   }
 
-  function loadSeenIds(): string[] {
-    try {
-      const raw = localStorage.getItem(STORAGE.seenIds);
-      const parsed = raw ? (JSON.parse(raw) as unknown) : [];
-      if (!Array.isArray(parsed)) return [];
-      return parsed.filter((x) => typeof x === 'string');
-    } catch {
-      return [];
-    }
-  }
-
-  function saveSeenIds(ids: string[]) {
-    const capped = ids.slice(-500);
-    localStorage.setItem(STORAGE.seenIds, JSON.stringify(capped));
-  }
-
-  function loadDeviceSeed(): string {
-    const override = getParam('dc_seed');
-    if (override) return override;
-
-    const existing = localStorage.getItem(STORAGE.deviceSeed);
-    if (existing) return existing;
-
-    const seed = typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : String(Math.random());
-    localStorage.setItem(STORAGE.deviceSeed, seed);
-    return seed;
-  }
-
-  function loadLastShown(): LastShown | null {
-    try {
-      const raw = localStorage.getItem(STORAGE.lastShown);
-      if (!raw) return null;
-      const parsed = JSON.parse(raw) as unknown;
-      if (!parsed || typeof parsed !== 'object') return null;
-      const obj = parsed as Record<string, unknown>;
-      const id = obj.id;
-      const dayKey = obj.dayKey;
-      if (typeof id !== 'string') return null;
-      if (dayKey != null && typeof dayKey !== 'string') return null;
-      return { id, dayKey };
-    } catch {
-      return null;
-    }
-  }
-
-  function saveLastShown(last: LastShown) {
-    localStorage.setItem(STORAGE.lastShown, JSON.stringify(last));
-  }
+  // Storage helpers live in ../lib/storage (NFR-010).
 
   function pickInitial() {
     // Optional overrides for deterministic E2E.
@@ -175,13 +130,13 @@
     const forcedId = getParam('dc_id');
     const seedOverride = getParam('dc_seed');
 
-    const hadSeedBefore = !seedOverride && localStorage.getItem(STORAGE.deviceSeed);
+    const hadSeedBefore = !seedOverride && localStorage.getItem(STORAGE_KEYS.deviceSeed);
     const deterministicMode = !!seedOverride || !!day || !!forcedId;
 
-    const seed = loadDeviceSeed();
-    const seen = new Set(loadSeenIds());
+    const seed = loadOrCreateDeviceSeed(localStorage, { override: seedOverride });
+    const seen = new Set(loadSeenIds(localStorage));
 
-    const last = loadLastShown();
+    const last = loadLastShown(localStorage);
     const effectiveDayKey = day ?? toUtcDayKey(new Date());
 
     // If a specific id is forced, show it (useful for visual regression stability).
@@ -189,8 +144,8 @@
       const item = complimentsData.compliments.find((c) => c.id === forcedId);
       if (item) {
         seen.add(item.id);
-        saveSeenIds([...seen]);
-        saveLastShown({ id: item.id, dayKey: effectiveDayKey });
+        saveSeenIds(localStorage, [...seen]);
+        saveLastShown(localStorage, { id: item.id, dayKey: effectiveDayKey });
         text = item.text;
         return;
       }
@@ -206,8 +161,8 @@
         const item = list[idx]!;
 
         seen.add(item.id);
-        saveSeenIds([...seen]);
-        saveLastShown({ id: item.id, dayKey: effectiveDayKey });
+        saveSeenIds(localStorage, [...seen]);
+        saveLastShown(localStorage, { id: item.id, dayKey: effectiveDayKey });
         text = item.text;
         return;
       }
@@ -218,7 +173,7 @@
       const item = complimentsData.compliments.find((c) => c.id === last.id);
       if (item && (!last.dayKey || last.dayKey === effectiveDayKey)) {
         seen.add(item.id);
-        saveSeenIds([...seen]);
+        saveSeenIds(localStorage, [...seen]);
         text = item.text;
         return;
       }
@@ -232,15 +187,15 @@
     });
 
     seen.add(result.compliment.id);
-    saveSeenIds([...seen]);
-    saveLastShown({ id: result.compliment.id, dayKey: result.dayKey });
+    saveSeenIds(localStorage, [...seen]);
+    saveLastShown(localStorage, { id: result.compliment.id, dayKey: result.dayKey });
 
     text = result.compliment.text;
   }
 
   function next() {
     // Next should be random (not deterministic by seed), while still avoiding repeats per device.
-    const seen = new Set(loadSeenIds());
+    const seen = new Set(loadSeenIds(localStorage));
 
     const all = complimentsData.compliments;
     const unseen = all.filter((c) => !seen.has(c.id));
@@ -248,8 +203,8 @@
     // If we ran out, reset and start fresh.
     const pool = unseen.length > 0 ? unseen : all;
     if (unseen.length === 0) {
-      saveSeenIds([]);
-      localStorage.removeItem(STORAGE.lastShown);
+      saveSeenIds(localStorage, []);
+      localStorage.removeItem(STORAGE_KEYS.lastShown);
       seen.clear();
     }
 
@@ -261,17 +216,16 @@
 
     const item = pool[idx]!;
 
-    const seen2 = new Set(loadSeenIds());
+    const seen2 = new Set(loadSeenIds(localStorage));
     seen2.add(item.id);
-    saveSeenIds([...seen2]);
-    saveLastShown({ id: item.id });
+    saveSeenIds(localStorage, [...seen2]);
+    saveLastShown(localStorage, { id: item.id });
 
     text = item.text;
   }
 
   function resetHistory() {
-    localStorage.removeItem(STORAGE.seenIds);
-    localStorage.removeItem(STORAGE.lastShown);
+    clearHistory(localStorage);
     pickInitial();
   }
 
@@ -283,6 +237,7 @@
   const onResize = () => queueFitCircleText();
 
   onMount(() => {
+    migrateStorage(localStorage);
     pickInitial();
     queueFitCircleText();
 
