@@ -13,8 +13,6 @@
     STORAGE_KEYS,
   } from '../lib/storage';
 
-  type LastShown = import('../lib/storage').LastShown;
-
   const complimentsData = data as unknown as ComplimentsData;
 
   let text = '…';
